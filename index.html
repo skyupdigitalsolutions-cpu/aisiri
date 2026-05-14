@@ -673,7 +673,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-33.333% - 2rem));
+      transform: translateX(calc(-50% - 1rem));
     }
   }
   .testi-grid {
@@ -687,10 +687,9 @@
     border: 1px solid var(--border);
     border-top: 3px solid var(--gold);
     transition: box-shadow .25s, transform .25s;
-    min-width: 280px;
-    width: 280px;
-    height: 280px;
-    aspect-ratio: 1 / 1;
+    min-width: 320px;
+    width: 320px;
+    min-height: 340px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -708,10 +707,24 @@
   }
   .testi-text {
     font-size: 12.5px; font-weight: 300; font-style: italic;
-    color: var(--navy); line-height: 1.65; margin-bottom: 1rem;
+    color: var(--navy); line-height: 1.65; margin-bottom: 1.2rem;
     flex: 1;
   }
-  .testi-author { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); font-weight: 500; margin-top: auto; }
+  .testi-footer {
+    display: flex; align-items: center; gap: .85rem;
+    margin-top: auto; padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .testi-photo {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold);
+    flex-shrink: 0;
+  }
+  .testi-meta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .testi-name { font-size: 12px; font-weight: 600; color: var(--navy); }
+  .testi-case { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); font-weight: 500; }
 
   /* ── CONTACT ── */
   #contact {
@@ -883,7 +896,7 @@
     .about-visual { display: none; }
     .adv-photo-wrap { display: none; }
     .practice-grid { grid-template-columns: 1fr 1fr; }
-    .testi-card { min-width: 300px; width: 300px; height: 300px; }
+    .testi-card { min-width: 300px; width: 300px; min-height: 340px; height: auto; }
     .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .process-steps::before { display: none; }
     .nav-links { display: none; }
@@ -901,7 +914,7 @@
     .hero-stats-panel { grid-template-columns: 1fr; gap: 1rem; }
     .sticky-phone { bottom: 1rem; right: 1rem; padding: 10px 16px; }
     .nav-logo img { height: 42px; }
-    .testi-card { min-width: 280px; width: 280px; height: 280px; }
+    .testi-card { min-width: 280px; width: 280px; min-height: 340px; height: auto; }
   }
 </style>
 </head>
@@ -1162,205 +1175,225 @@
         <div class="testi-grid">
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Handled my bail matter with incredible speed and transparency. I was kept informed at every step and the outcome exceeded my expectations."</p>
-            <div class="testi-author">Rajesh M. &middot; Criminal matter</div>
+            <p class="testi-text">&quot;A false FIR by my former business partner left my family in panic. Within 48 hours, the team secured bail and laid out a clear defense roadmap. Their composure when ours was failing meant everything.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m1.webp" alt="Rajesh Murthy">
+              <div class="testi-meta">
+                <div class="testi-name">Rajesh Murthy</div>
+                <div class="testi-case">Criminal Defense</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Our property dispute had dragged on for years before we came to Aisiri Law Chambers. They resolved it decisively. Highly recommended."</p>
-            <div class="testi-author">Priya &amp; Suresh K. &middot; Property dispute</div>
+            <p class="testi-text">&quot;My divorce could have turned bitter, but their counsel ensured a mutual settlement that protected my child&#39;s interests and my financial security. Compassionate when needed, firm when it mattered.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f1.webp" alt="Anjali Sharma">
+              <div class="testi-meta">
+                <div class="testi-name">Anjali Sharma</div>
+                <div class="testi-case">Matrimonial Matter</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Very professional. Every step explained clearly. No unnecessary delays or costs. Would strongly recommend for any legal matter in Bengaluru."</p>
-            <div class="testi-author">Anil T. &middot; Commercial litigation</div>
+            <p class="testi-text">&quot;A 12-year ancestral property dispute with my cousins finally resolved in under 8 months. They surfaced documentation everyone else had overlooked. Direct, honest, outcome-focused.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m2.webp" alt="Suresh Kamath">
+              <div class="testi-meta">
+                <div class="testi-name">Suresh Kamath</div>
+                <div class="testi-case">Property Litigation</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"The expertise and dedication shown by this firm is unmatched. They fought tirelessly for my case and achieved the best possible outcome."</p>
-            <div class="testi-author">Vikram Singh &middot; Criminal defense</div>
+            <p class="testi-text">&quot;I walked in scared and unsure. They listened without judgment, secured a protection order quickly, and stood by me through every hearing. I owe them my peace of mind.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f2.webp" alt="Priya Nair">
+              <div class="testi-meta">
+                <div class="testi-name">Priya Nair</div>
+                <div class="testi-case">Domestic Violence Act</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"An exceptional firm with exceptional lawyers. They provided clear guidance and strategic advice that made all the difference in my case."</p>
-            <div class="testi-author">Meera Patel &middot; Civil litigation</div>
+            <p class="testi-text">&quot;A &#8377;40 lakh cheque bounced and the issuer became untraceable. The firm built an airtight Section 138 case and recovered the full amount with interest. Strategic and tenacious.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m3.webp" alt="Anil Thakur">
+              <div class="testi-meta">
+                <div class="testi-name">Anil Thakur</div>
+                <div class="testi-case">Cheque Bounce Recovery</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Impressed by their professionalism and thorough understanding of property law. Case resolved much faster than expected."</p>
-            <div class="testi-author">Rajesh Gupta &middot; Property matters</div>
+            <p class="testi-text">&quot;Our builder delayed possession by 3 years and refused refund. The team filed before RERA, negotiated firmly, and got us a full refund with compensation. Saved our life savings.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f3.webp" alt="Divya Reddy">
+              <div class="testi-meta">
+                <div class="testi-name">Divya Reddy</div>
+                <div class="testi-case">RERA / Consumer</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Outstanding support throughout my family law matter. They understood my concerns and worked compassionately towards resolution."</p>
-            <div class="testi-author">Anjali Sharma &middot; Family law</div>
+            <p class="testi-text">&quot;A vendor breached a critical supply contract right before our product launch. Their arbitration strategy got us interim relief in 2 weeks and a favourable award within 4 months.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m4.webp" alt="Ashok Kumar">
+              <div class="testi-meta">
+                <div class="testi-name">Ashok Kumar</div>
+                <div class="testi-case">Commercial Arbitration</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Best legal counsel I could have asked for. Transparent communication and excellent results made the entire process stress-free."</p>
-            <div class="testi-author">Ashok Kumar &middot; Corporate matters</div>
+            <p class="testi-text">&quot;Anonymous accounts started defaming my business on social media. They coordinated with the cyber cell, traced the source, and got everything taken down through proper legal channels.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m5.webp" alt="Vikram Singh">
+              <div class="testi-meta">
+                <div class="testi-name">Vikram Singh</div>
+                <div class="testi-case">Cyber Defamation</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Their attention to detail and strategic planning in my litigation case was phenomenal. Highly satisfied with the outcome."</p>
-            <div class="testi-author">Divya Reddy &middot; Civil appeals</div>
+            <p class="testi-text">&quot;My late father&#39;s estate had three claimants and zero clarity. They handled the succession certificate, settled disputes amicably with relatives, and protected what was rightfully mine.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f4.webp" alt="Meera Patel">
+              <div class="testi-meta">
+                <div class="testi-name">Meera Patel</div>
+                <div class="testi-case">Succession Matter</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Professional, trustworthy, and result-oriented. They exceeded my expectations at every stage of my case handling."</p>
-            <div class="testi-author">Sunil Rao &middot; Contract disputes</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Effective representation with a personal touch. They treated my case as if it were their own, and the results speak for themselves."</p>
-            <div class="testi-author">Neha Verma &middot; Criminal matter</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Incredibly knowledgeable about property law complexities. They navigated our multi-party dispute with remarkable skill."</p>
-            <div class="testi-author">Prakash Desai &middot; Property dispute</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"From consultation to resolution, their guidance was invaluable. I would recommend them without hesitation to anyone needing legal help."</p>
-            <div class="testi-author">Kavya Nair &middot; Family matter</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Demonstrated exceptional legal acumen and commitment to achieving the best outcome. Truly impressed by their work."</p>
-            <div class="testi-author">Rohit Jain &middot; Commercial litigation</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Swift, professional, and results-driven approach. They made the legal process simple and understandable for me."</p>
-            <div class="testi-author">Priya Singh &middot; Civil litigation</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Exceptional legal expertise combined with genuine care for client welfare. A firm you can truly trust and rely on."</p>
-            <div class="testi-author">Venkat Murthy &middot; Appeals</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Profoundly grateful for their meticulous preparation and strategic approach that led to favorable judgment in my case."</p>
-            <div class="testi-author">Sneha Gupta &middot; Criminal defense</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Outstanding legal representation with a human touch. They understood my situation and fought for justice effectively."</p>
-            <div class="testi-author">Arjun Iyer &middot; Property matter</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Their command over legal procedures and court nuances is remarkable. Delivered results beyond my expectations."</p>
-            <div class="testi-author">Deepika Roy &middot; Corporate matters</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Trustworthy, capable, and genuinely invested in client success. Highly recommend for any legal consultation needs."</p>
-            <div class="testi-author">Sanjay Nair &middot; Civil litigation</div>
+            <p class="testi-text">&quot;My father was seriously injured in an accident and the insurance company kept delaying. The team pushed through every MACT hearing and got compensation nearly 3x the initial offer.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m6.webp" alt="Sunil Rao">
+              <div class="testi-meta">
+                <div class="testi-name">Sunil Rao</div>
+                <div class="testi-case">Motor Accident Claim</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="testi-grid">
+        <div class="testi-grid" aria-hidden="true">
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Handled my bail matter with incredible speed and transparency. I was kept informed at every step and the outcome exceeded my expectations."</p>
-            <div class="testi-author">Rajesh M. &middot; Criminal matter</div>
+            <p class="testi-text">&quot;A false FIR by my former business partner left my family in panic. Within 48 hours, the team secured bail and laid out a clear defense roadmap. Their composure when ours was failing meant everything.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m1.webp" alt="Rajesh Murthy">
+              <div class="testi-meta">
+                <div class="testi-name">Rajesh Murthy</div>
+                <div class="testi-case">Criminal Defense</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Our property dispute had dragged on for years before we came to Aisiri Law Chambers. They resolved it decisively. Highly recommended."</p>
-            <div class="testi-author">Priya &amp; Suresh K. &middot; Property dispute</div>
+            <p class="testi-text">&quot;My divorce could have turned bitter, but their counsel ensured a mutual settlement that protected my child&#39;s interests and my financial security. Compassionate when needed, firm when it mattered.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f1.webp" alt="Anjali Sharma">
+              <div class="testi-meta">
+                <div class="testi-name">Anjali Sharma</div>
+                <div class="testi-case">Matrimonial Matter</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Very professional. Every step explained clearly. No unnecessary delays or costs. Would strongly recommend for any legal matter in Bengaluru."</p>
-            <div class="testi-author">Anil T. &middot; Commercial litigation</div>
+            <p class="testi-text">&quot;A 12-year ancestral property dispute with my cousins finally resolved in under 8 months. They surfaced documentation everyone else had overlooked. Direct, honest, outcome-focused.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m2.webp" alt="Suresh Kamath">
+              <div class="testi-meta">
+                <div class="testi-name">Suresh Kamath</div>
+                <div class="testi-case">Property Litigation</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"The expertise and dedication shown by this firm is unmatched. They fought tirelessly for my case and achieved the best possible outcome."</p>
-            <div class="testi-author">Vikram Singh &middot; Criminal defense</div>
+            <p class="testi-text">&quot;I walked in scared and unsure. They listened without judgment, secured a protection order quickly, and stood by me through every hearing. I owe them my peace of mind.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f2.webp" alt="Priya Nair">
+              <div class="testi-meta">
+                <div class="testi-name">Priya Nair</div>
+                <div class="testi-case">Domestic Violence Act</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"An exceptional firm with exceptional lawyers. They provided clear guidance and strategic advice that made all the difference in my case."</p>
-            <div class="testi-author">Meera Patel &middot; Civil litigation</div>
+            <p class="testi-text">&quot;A &#8377;40 lakh cheque bounced and the issuer became untraceable. The firm built an airtight Section 138 case and recovered the full amount with interest. Strategic and tenacious.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m3.webp" alt="Anil Thakur">
+              <div class="testi-meta">
+                <div class="testi-name">Anil Thakur</div>
+                <div class="testi-case">Cheque Bounce Recovery</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Impressed by their professionalism and thorough understanding of property law. Case resolved much faster than expected."</p>
-            <div class="testi-author">Rajesh Gupta &middot; Property matters</div>
+            <p class="testi-text">&quot;Our builder delayed possession by 3 years and refused refund. The team filed before RERA, negotiated firmly, and got us a full refund with compensation. Saved our life savings.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f3.webp" alt="Divya Reddy">
+              <div class="testi-meta">
+                <div class="testi-name">Divya Reddy</div>
+                <div class="testi-case">RERA / Consumer</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Outstanding support throughout my family law matter. They understood my concerns and worked compassionately towards resolution."</p>
-            <div class="testi-author">Anjali Sharma &middot; Family law</div>
+            <p class="testi-text">&quot;A vendor breached a critical supply contract right before our product launch. Their arbitration strategy got us interim relief in 2 weeks and a favourable award within 4 months.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m4.webp" alt="Ashok Kumar">
+              <div class="testi-meta">
+                <div class="testi-name">Ashok Kumar</div>
+                <div class="testi-case">Commercial Arbitration</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Best legal counsel I could have asked for. Transparent communication and excellent results made the entire process stress-free."</p>
-            <div class="testi-author">Ashok Kumar &middot; Corporate matters</div>
+            <p class="testi-text">&quot;Anonymous accounts started defaming my business on social media. They coordinated with the cyber cell, traced the source, and got everything taken down through proper legal channels.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m5.webp" alt="Vikram Singh">
+              <div class="testi-meta">
+                <div class="testi-name">Vikram Singh</div>
+                <div class="testi-case">Cyber Defamation</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Their attention to detail and strategic planning in my litigation case was phenomenal. Highly satisfied with the outcome."</p>
-            <div class="testi-author">Divya Reddy &middot; Civil appeals</div>
+            <p class="testi-text">&quot;My late father&#39;s estate had three claimants and zero clarity. They handled the succession certificate, settled disputes amicably with relatives, and protected what was rightfully mine.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="f4.webp" alt="Meera Patel">
+              <div class="testi-meta">
+                <div class="testi-name">Meera Patel</div>
+                <div class="testi-case">Succession Matter</div>
+              </div>
+            </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Professional, trustworthy, and result-oriented. They exceeded my expectations at every stage of my case handling."</p>
-            <div class="testi-author">Sunil Rao &middot; Contract disputes</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Effective representation with a personal touch. They treated my case as if it were their own, and the results speak for themselves."</p>
-            <div class="testi-author">Neha Verma &middot; Criminal matter</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Incredibly knowledgeable about property law complexities. They navigated our multi-party dispute with remarkable skill."</p>
-            <div class="testi-author">Prakash Desai &middot; Property dispute</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"From consultation to resolution, their guidance was invaluable. I would recommend them without hesitation to anyone needing legal help."</p>
-            <div class="testi-author">Kavya Nair &middot; Family matter</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Demonstrated exceptional legal acumen and commitment to achieving the best outcome. Truly impressed by their work."</p>
-            <div class="testi-author">Rohit Jain &middot; Commercial litigation</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Swift, professional, and results-driven approach. They made the legal process simple and understandable for me."</p>
-            <div class="testi-author">Priya Singh &middot; Civil litigation</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Exceptional legal expertise combined with genuine care for client welfare. A firm you can truly trust and rely on."</p>
-            <div class="testi-author">Venkat Murthy &middot; Appeals</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Profoundly grateful for their meticulous preparation and strategic approach that led to favorable judgment in my case."</p>
-            <div class="testi-author">Sneha Gupta &middot; Criminal defense</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Outstanding legal representation with a human touch. They understood my situation and fought for justice effectively."</p>
-            <div class="testi-author">Arjun Iyer &middot; Property matter</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Their command over legal procedures and court nuances is remarkable. Delivered results beyond my expectations."</p>
-            <div class="testi-author">Deepika Roy &middot; Corporate matters</div>
-          </div>
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">"Trustworthy, capable, and genuinely invested in client success. Highly recommend for any legal consultation needs."</p>
-            <div class="testi-author">Sanjay Nair &middot; Civil litigation</div>
+            <p class="testi-text">&quot;My father was seriously injured in an accident and the insurance company kept delaying. The team pushed through every MACT hearing and got compensation nearly 3x the initial offer.&quot;</p>
+            <div class="testi-footer">
+              <img class="testi-photo" src="m6.webp" alt="Sunil Rao">
+              <div class="testi-meta">
+                <div class="testi-name">Sunil Rao</div>
+                <div class="testi-case">Motor Accident Claim</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
