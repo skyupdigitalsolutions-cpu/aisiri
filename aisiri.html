@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aisiri Law Chambers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1a2744;
+    --navy2:  #142038;
+    --gold:   #c9a84c;
+    --gold2:  #e2c06e;
+    --white:  #f8f6f1;
+    --offwhite: #f2efe8;
+    --mid:    #6b7280;
+    --border: rgba(26,39,68,0.12);
+    --border-gold: rgba(201,168,76,0.3);
+    --font: 'Poppins', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--navy);
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── DISCLAIMER ── */
+  #disclaimer {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--navy2);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .disc-box {
+    max-width: 580px; width: 100%;
+    border: 1px solid rgba(201,168,76,.25);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    background: rgba(255,255,255,.03);
+    backdrop-filter: blur(10px);
+  }
+  .disc-logo {
+    width: 150px; height: auto;
+    margin: 0 auto 1.5rem;
+    display: block;
+    padding: 16px;
+    background: #f8f6f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(201,168,76,.25);
+  }
+  .disc-divider {
+    width: 60px; height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 1.5rem;
+  }
+  .disc-box h2 {
+    font-size: 1.1rem; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--gold2); margin-bottom: 1.2rem;
+  }
+  .disc-box p {
+    color: rgba(248,246,241,.55);
+    font-size: 12.5px; line-height: 1.9;
+    margin-bottom: 2rem; font-weight: 300;
+  }
+  .disc-box p strong { color: rgba(248,246,241,.8); font-weight: 500; }
+  .disc-btn {
+    display: inline-block; padding: 13px 44px;
+    background: var(--gold); color: var(--navy2);
+    font-family: var(--font); font-size: 11px;
+    font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; cursor: pointer;
+    border: none; transition: background .2s;
+  }
+  .disc-btn:hover { background: var(--gold2); }
+  .disc-decline {
+    display: block; margin-top: 1rem;
+    font-size: 10.5px; color: rgba(248,246,241,.25);
+    cursor: pointer; letter-spacing: .06em;
+    text-transform: uppercase; background: none; border: none;
+    font-family: var(--font);
+  }
+  .disc-decline:hover { color: rgba(248,246,241,.45); }
+
+  /* ── SITE ── */
+  #site { display: none; }
+  #site.visible { display: block; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4vw; height: 76px;
+    background: rgba(248,246,241,.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,39,68,.1); }
+
+  .nav-logo img {
+    height: 52px; width: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none; align-items: center;
+  }
+  .nav-links a {
+    font-size: 11px; font-weight: 500; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--navy);
+    text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    padding: 10px 22px;
+    background: var(--navy) !important;
+    color: var(--white) !important;
+    font-size: 11px !important;
+    transition: background .2s !important;
+    border: 1.5px solid var(--navy);
+  }
+  .nav-cta:hover { background: var(--gold) !important; border-color: var(--gold) !important; color: var(--navy) !important; }
+
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 1.5px;
+    background: var(--navy); transition: all .3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .nav-mobile {
+    display: none; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
+    background: var(--white); z-index: 99; padding: 2.5rem 2rem;
+    flex-direction: column; gap: 1.5rem;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-size: 1.4rem; font-weight: 500;
+    color: var(--navy); text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem; transition: color .2s;
+  }
+  .nav-mobile a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; padding-top: 76px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, rgba(20,32,56,.35) 0%, rgba(26,39,68,.45) 100%), url('hero.png') center/cover no-repeat;
+  }
+  #hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(20,32,56,.25) 0%, rgba(26,39,68,.35) 100%);
+    z-index: 1;
+  }
+  .hero-left {
+    padding: 8vh 6vw;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center;
+    position: relative; z-index: 2;
+    max-width: 800px;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold2);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    animation: slideInRight .8s ease-out;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 1.5px; background: var(--gold2);
+    animation: slideInRight .8s ease-out .2s both;
+  }
+  .hero-headline {
+    font-size: clamp(2.6rem, 5vw, 4.8rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--white); margin-bottom: 1.5rem;
+    letter-spacing: -.01em;
+    animation: slideInRight .8s ease-out .4s both;
+  }
+  .hero-headline .gold { color: var(--gold2); font-weight: 300; font-style: italic; }
+
+  .hero-sub {
+    font-size: 14px; color: rgba(248,246,241,.85);
+    max-width: 520px; line-height: 1.85;
+    margin-bottom: 2.5rem; font-weight: 300;
+    animation: slideInRight .8s ease-out .6s both;
+  }
+  .hero-actions { 
+    display: flex; 
+    gap: 1rem; 
+    flex-wrap: wrap;
+    animation: slideInRight .8s ease-out .8s both;
+  }
+
+  .btn-primary {
+    padding: 14px 34px;
+    background: var(--gold); color: var(--navy);
+    font-family: var(--font); font-size: 11px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    text-decoration: none; border: 2px solid var(--gold);
+    transition: background .25s, color .25s, border-color .25s, transform .25s;
+    display: inline-block;
+  }
+  .btn-primary:hover { 
+    background: var(--white); 
+    border-color: var(--white); 
+    color: var(--navy);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    padding: 14px 34px;
+    background: transparent; color: var(--white);
+    font-family: var(--font); font-size: 11px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    text-decoration: none; border: 2px solid var(--white);
+    transition: background .25s, color .25s, transform .25s;
+    display: inline-block;
+  }
+  .btn-outline:hover { 
+    background: var(--gold); 
+    color: var(--navy);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-right {
+    display: none;
+  }
+  .hero-right::before {
+    display: none;
+  }
+  .hero-logo-bg {
+    display: none;
+  }
+  .hero-logo-bg img {
+    width: 55%; max-width: 280px; opacity: .12;
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(0deg);
+  }
+  .hero-stats-panel {
+    display: none;
+  }
+  .hero-stat {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem;
+    padding: 1.8rem;
+    background: linear-gradient(135deg, rgba(26,39,68,.8) 0%, rgba(26,39,68,.9) 100%);
+    border: 1.5px solid rgba(201,168,76,.2);
+    aspect-ratio: 1 / 1;
+    position: relative; 
+    overflow: hidden;
+    cursor: default; 
+    transition: border-color .3s, background .3s, transform .3s, box-shadow .3s;
+    animation: slideInStats .6s ease forwards;
+  }
+  .hero-stat::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(201,168,76,.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+  .hero-stat:nth-child(1) { animation-delay: 0.1s; }
+  .hero-stat:nth-child(2) { animation-delay: 0.2s; }
+  .hero-stat:nth-child(3) { animation-delay: 0.3s; }
+  .hero-stat:nth-child(4) { animation-delay: 0.4s; }
+  .hero-stat:hover {
+    border-color: rgba(201,168,76,.5);
+    background: linear-gradient(135deg, rgba(26,39,68,.9) 0%, rgba(26,39,68,1) 100%);
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(201,168,76,.15);
+  }
+  .hero-stat-num {
+    font-size: 2.4rem; font-weight: 700;
+    color: var(--gold); line-height: 1;
+    position: relative; z-index: 1;
+    animation: glow 2s ease-in-out infinite;
+    text-align: center;
+  }
+  .hero-stat-info { 
+    flex: 1; 
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-stat-title {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(248,246,241,.95); margin-bottom: 3px;
+  }
+  .hero-stat-desc {
+    font-size: 11px; color: rgba(248,246,241,.5);
+    font-weight: 300;
+    line-height: 1.4;
+  }
+  
+  .hero-stat-icon {
+    width: 42px; height: 42px;
+    border: 2px solid rgba(201,168,76,.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 1;
+    margin-top: -0.5rem;
+  }
+  .hero-stat-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  /* ── TRUST BAR ── */
+  #trust {
+    background: var(--gold);
+    padding: 1.8rem 6vw;
+    display: flex; gap: 0; flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  #trust::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, 
+      rgba(26,39,68,0) 0%, 
+      rgba(26,39,68,.02) 10%, 
+      rgba(26,39,68,0) 50%, 
+      rgba(26,39,68,.02) 90%, 
+      rgba(26,39,68,0) 100%);
+    animation: shimmer 4s infinite;
+    pointer-events: none;
+  }
+  .trust-item {
+    flex: 1; min-width: 140px;
+    padding: .8rem 1.2rem;
+    border-right: 1px solid rgba(26,39,68,.2);
+    text-align: center;
+    position: relative;
+    animation: floatUp 3s ease-in-out infinite;
+    transition: transform .3s ease;
+  }
+  .trust-item:hover {
+    transform: scale(1.05);
+    animation-play-state: paused;
+  }
+  .trust-item:nth-child(1) { animation-delay: 0s; }
+  .trust-item:nth-child(2) { animation-delay: 0.2s; }
+  .trust-item:nth-child(3) { animation-delay: 0.4s; }
+  .trust-item:nth-child(4) { animation-delay: 0.6s; }
+  .trust-item:nth-child(5) { animation-delay: 0.8s; }
+  .trust-item:last-child { border-right: none; }
+  .trust-num {
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--navy2); line-height: 1;
+    animation: countUp .6s ease forwards;
+  }
+  .trust-label {
+    font-size: 9.5px; letter-spacing: .15em;
+    text-transform: uppercase; color: rgba(26,39,68,.65);
+    margin-top: 4px; font-weight: 500;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 7rem 6vw; }
+
+  .section-eyebrow {
+    font-size: 10px; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: .8rem;
+    display: flex; align-items: center; gap: 10px;
+    animation: slideInRight .8s ease-out;
+  }
+  .section-eyebrow::before {
+    content:''; display:inline-block;
+    width:20px; height:1.5px; background:var(--gold);
+    animation: slideInRight .8s ease-out .2s both;
+  }
+  .section-title {
+    font-size: clamp(1.9rem, 3.5vw, 3.2rem);
+    font-weight: 700; line-height: 1.2;
+    color: var(--navy);
+    animation: slideInRight .8s ease-out .4s both;
+  }
+  .section-title .italic { font-weight: 300; font-style: italic; color: var(--mid); }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7vw;
+    align-items: center;
+  }
+  .about-visual { position: relative; }
+  .about-frame {
+    width: 100%; aspect-ratio: 4/5;
+    background: var(--navy);
+    position: relative; overflow: hidden;
+  }
+  .about-frame-inner {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 40px,
+      rgba(201,168,76,.04) 40px, rgba(201,168,76,.04) 41px
+    );
+  }
+  .about-frame-quote {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 2rem 1.8rem;
+    background: linear-gradient(to top, rgba(20,32,56,.95) 0%, transparent 100%);
+  }
+  .about-frame-quote p {
+    font-size: 1rem; font-weight: 300; font-style: italic;
+    color: rgba(248,246,241,.8); line-height: 1.65;
+    border-left: 2px solid var(--gold); padding-left: 1rem;
+  }
+  .about-corner-tl {
+    position: absolute; top: -1.2rem; left: -1.2rem;
+    width: 50px; height: 50px;
+    border-left: 2px solid var(--gold); border-top: 2px solid var(--gold);
+  }
+  .about-corner-br {
+    position: absolute; bottom: -1.2rem; right: -1.2rem;
+    width: 50px; height: 50px;
+    border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+  }
+  .about-content { padding: 1rem 0; }
+  .about-content .section-title { margin-bottom: 1.2rem; }
+  .about-content p { color: var(--mid); font-size: 14px; margin-bottom: 1.1rem; max-width: 460px; font-weight: 300; }
+  .about-values {
+    margin-top: 2rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+  }
+  .about-value {
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    transition: box-shadow .2s, transform .2s;
+    animation: slideInStats .6s ease forwards;
+  }
+  .about-value:nth-child(1) { animation-delay: 0.1s; }
+  .about-value:nth-child(2) { animation-delay: 0.2s; }
+  .about-value:nth-child(3) { animation-delay: 0.3s; }
+  .about-value:nth-child(4) { animation-delay: 0.4s; }
+  .about-value:hover { 
+    box-shadow: 0 4px 16px rgba(26,39,68,.08);
+    transform: translateX(5px);
+  }
+  .about-value-title {
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 5px;
+  }
+  .about-value p { font-size: 12px; margin: 0; }
+
+  /* ── PRACTICE ── */
+  #practice { background: var(--navy2); }
+  #practice .section-eyebrow { color: rgba(201,168,76,.9); }
+  #practice .section-eyebrow::before { background: rgba(201,168,76,.9); }
+  #practice .section-title { color: var(--white); margin-bottom: .8rem; }
+  .practice-intro { color: rgba(248,246,241,.45); font-size: 13.5px; max-width: 480px; margin-bottom: 3.5rem; font-weight: 300; }
+
+  .practice-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+    background: rgba(255,255,255,.06);
+  }
+  .practice-card {
+    background: var(--navy2);
+    padding: 2.2rem 2rem;
+    position: relative; overflow: hidden;
+    cursor: default; transition: background .3s, transform .3s;
+    animation: slideInStats .6s ease forwards;
+  }
+  .practice-card:nth-child(1) { animation-delay: 0.1s; }
+  .practice-card:nth-child(2) { animation-delay: 0.2s; }
+  .practice-card:nth-child(3) { animation-delay: 0.3s; }
+  .practice-card:nth-child(4) { animation-delay: 0.4s; }
+  .practice-card:nth-child(5) { animation-delay: 0.5s; }
+  .practice-card:nth-child(6) { animation-delay: 0.6s; }
+  .practice-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s;
+  }
+  .practice-card:hover { 
+    background: rgba(255,255,255,.04);
+    transform: translateY(-5px);
+  }
+  .practice-card:hover::after { transform: scaleX(1); }
+
+  .practice-num {
+    font-size: 2.5rem; font-weight: 700;
+    color: rgba(201,168,76,.12); line-height: 1; margin-bottom: 1rem;
+    display: none;
+  }
+  .practice-icon {
+    width: 70px; height: 70px;
+    border: 2px solid rgba(201,168,76,.4);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    transition: all .3s ease;
+  }
+  .practice-icon svg { width: 40px; height: 40px; stroke: var(--gold); fill: none; stroke-width: 1.2; }
+  .practice-card:hover .practice-icon {
+    border-color: var(--gold);
+    background: rgba(201,168,76,.08);
+    transform: scale(1.1);
+  }
+  .practice-card h3 {
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--white); margin-bottom: .6rem;
+  }
+  .practice-card p {
+    font-size: 12.5px; color: rgba(248,246,241,.4);
+    line-height: 1.8; font-weight: 300;
+  }
+
+  /* ── PROCESS ── */
+  #process { background: var(--offwhite); }
+  .process-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem; flex-wrap: wrap; gap: 2rem;
+  }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem;
+    position: relative;
+  }
+  .process-steps::before {
+    content: ''; position: absolute; top: 28px; left: 0; right: 0; height: 1px;
+    background: var(--border);
+  }
+  .process-step { 
+    padding-right: 1rem;
+    animation: slideInStats .6s ease forwards;
+  }
+  .process-step:nth-child(1) { animation-delay: 0.1s; }
+  .process-step:nth-child(2) { animation-delay: 0.2s; }
+  .process-step:nth-child(3) { animation-delay: 0.3s; }
+  .process-step:nth-child(4) { animation-delay: 0.4s; }
+  .step-num {
+    width: 56px; height: 56px;
+    border: 2px solid var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 700;
+    background: var(--offwhite); position: relative; z-index: 1;
+    margin-bottom: 1.5rem; transition: background .25s, color .25s, transform .25s;
+    color: var(--navy);
+  }
+  .process-step:hover .step-num { 
+    background: var(--gold); 
+    border-color: var(--gold); 
+    color: var(--navy);
+    transform: scale(1.1);
+  }
+  .step-title { 
+    font-size: 10.5px; 
+    font-weight: 600; 
+    letter-spacing: .1em; 
+    text-transform: uppercase; 
+    margin-bottom: .6rem;
+    transition: color .3s;
+  }
+  .process-step:hover .step-title { color: var(--gold); }
+  .step-desc { 
+    font-size: 12.5px; 
+    color: var(--mid); 
+    line-height: 1.8; 
+    font-weight: 300; 
+    max-width: 200px; 
+  }
+
+  /* ── ADVOCATE ── */
+  #advocate {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7vw;
+    align-items: center;
+  }
+  .adv-content .section-title { margin-bottom: 1.2rem; }
+  .adv-content p { color: var(--mid); font-size: 14px; max-width: 460px; margin-bottom: 1.1rem; font-weight: 300; }
+  .adv-quote {
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem; font-weight: 300; font-style: italic;
+    color: var(--navy); line-height: 1.65;
+    margin: 1.8rem 0; background: rgba(201,168,76,.06);
+  }
+  .adv-badges {
+    display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0;
+  }
+  .adv-badge {
+    font-size: 10px; font-weight: 600; letter-spacing: .1em;
+    text-transform: uppercase; padding: 5px 12px;
+    border: 1px solid var(--border);
+    color: var(--navy); background: transparent;
+  }
+
+  .adv-photo-wrap { position: relative; }
+  .adv-photo {
+    width: 100%; aspect-ratio: 3/4;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .adv-photo-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,76,.1) 0%, transparent 70%);
+  }
+  .adv-photo-logo {
+    width: 55%; max-width: 200px; opacity: .25;
+    filter: brightness(2) saturate(0);
+    position: relative; z-index: 1;
+  }
+  .adv-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 1.8rem;
+    background: linear-gradient(to top, rgba(20,32,56,.95) 0%, transparent 100%);
+  }
+  .adv-caption strong {
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--white); display: block; margin-bottom: 3px;
+  }
+  .adv-caption span {
+    font-size: 10px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold);
+  }
+  .adv-corner-tl {
+    position: absolute; top: -1.2rem; left: -1.2rem;
+    width: 50px; height: 50px;
+    border-left: 2px solid var(--gold); border-top: 2px solid var(--gold);
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--offwhite); }
+  .testi-container {
+    margin-top: 3rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .testi-track {
+    display: flex;
+    gap: 2rem;
+    animation: scrollTesti 40s linear infinite;
+    width: fit-content;
+  }
+  .testi-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes scrollTesti {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-33.333% - 2rem));
+    }
+  }
+  .testi-grid {
+    display: flex;
+    gap: 2rem;
+    flex-shrink: 0;
+  }
+  .testi-card {
+    background: var(--white);
+    padding: 1.8rem 1.5rem;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    transition: box-shadow .25s, transform .25s;
+    min-width: 280px;
+    width: 280px;
+    height: 280px;
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .testi-card:hover { 
+    box-shadow: 0 8px 32px rgba(26,39,68,.1); 
+    transform: translateY(-8px);
+  }
+  .testi-stars { 
+    color: var(--gold); 
+    font-size: 13px; 
+    letter-spacing: 2px; 
+    margin-bottom: 1rem;
+  }
+  .testi-text {
+    font-size: 12.5px; font-weight: 300; font-style: italic;
+    color: var(--navy); line-height: 1.65; margin-bottom: 1rem;
+    flex: 1;
+  }
+  .testi-author { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); font-weight: 500; margin-top: auto; }
+
+  /* ── CONTACT ── */
+  #contact {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; align-items: start;
+  }
+  .contact-info .section-title { margin-bottom: 1.2rem; }
+  .contact-info > p { color: var(--mid); font-size: 14px; max-width: 400px; margin-bottom: 2rem; font-weight: 300; }
+  .contact-details { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-detail {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding-bottom: 1.2rem; border-bottom: 1px solid var(--border);
+  }
+  .contact-detail:last-child { border-bottom: none; }
+  .contact-detail-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    border: 1.5px solid var(--border-gold);
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(201,168,76,.05);
+  }
+  .contact-detail-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .contact-detail-label { font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; font-weight: 600; }
+  .contact-detail-value { font-size: 13.5px; color: var(--navy); font-weight: 400; }
+  .contact-detail-value a { color: var(--navy); text-decoration: none; }
+  .contact-detail-value a:hover { color: var(--gold); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+  .form-group { display: flex; flex-direction: column; gap: .35rem; }
+  .form-label { font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); font-weight: 600; }
+  .form-input, .form-textarea, .form-select {
+    border: 1.5px solid var(--border);
+    padding: 12px 15px;
+    font-family: var(--font); font-size: 13.5px; font-weight: 300;
+    background: transparent; color: var(--navy);
+    outline: none; transition: border-color .2s;
+    border-radius: 0; -webkit-appearance: none;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--gold); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center;
+    background-color: transparent;
+  }
+  .form-note { font-size: 11px; color: var(--mid); line-height: 1.7; font-weight: 300; }
+  .form-submit {
+    padding: 15px;
+    background: var(--navy); color: var(--white);
+    border: none; font-family: var(--font);
+    font-size: 11px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; cursor: pointer;
+    transition: background .25s; margin-top: .4rem;
+  }
+  .form-submit:hover { background: var(--gold); color: var(--navy); }
+  .form-success {
+    display: none; padding: 1.5rem;
+    border: 1px solid var(--border-gold);
+    font-size: 13px; color: var(--mid); text-align: center;
+    background: rgba(201,168,76,.05);
+  }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy2); padding: 4rem 6vw 2rem; }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.08);
+    flex-wrap: wrap; gap: 2rem;
+  }
+  .footer-brand img { height: 60px; width: auto; margin-bottom: .8rem; display: block; }
+  .footer-brand p {
+    font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(248,246,241,.3); margin-top: 4px;
+  }
+  .footer-links { display: flex; gap: 3.5rem; flex-wrap: wrap; }
+  .footer-link-group h4 {
+    font-size: 9.5px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; font-weight: 600;
+  }
+  .footer-link-group ul { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+  .footer-link-group a {
+    font-size: 12.5px; color: rgba(248,246,241,.45);
+    text-decoration: none; transition: color .2s; font-weight: 300;
+  }
+  .footer-link-group a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 2rem; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-copy { font-size: 11px; color: rgba(248,246,241,.2); letter-spacing: .04em; }
+  .footer-bci { font-size: 10px; color: rgba(248,246,241,.18); max-width: 400px; line-height: 1.7; }
+
+  /* ── STICKY CTA ── */
+  .sticky-phone {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 98;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--gold); color: var(--navy);
+    padding: 12px 20px; text-decoration: none;
+    font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(201,168,76,.35);
+    transition: background .2s, transform .2s;
+    animation: floatUp 3s ease-in-out infinite;
+  }
+  .sticky-phone:hover { 
+    background: var(--navy); 
+    color: var(--gold); 
+    transform: translateY(-2px);
+    animation-play-state: paused;
+  }
+  .sticky-phone svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(-100%); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px rgba(201,168,76,.3); }
+    50% { text-shadow: 0 0 15px rgba(201,168,76,.6); }
+  }
+
+  @keyframes slideInStats {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes pulse-scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+
+  @keyframes rotate-border {
+    from { border-color: var(--gold); }
+    to { border-color: rgba(201,168,76,.3); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  @keyframes countUp {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left {
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { padding-top: 76px; }
+    .hero-right { display: none; }
+    .hero-stats-panel { display: none; }
+    #about, #advocate, #contact { grid-template-columns: 1fr; }
+    .about-visual { display: none; }
+    .adv-photo-wrap { display: none; }
+    .practice-grid { grid-template-columns: 1fr 1fr; }
+    .testi-card { min-width: 300px; width: 300px; height: 300px; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::before { display: none; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 5rem 5vw; }
+    #trust { padding: 1.5rem 5vw; }
+    .trust-item { min-width: 50%; }
+    .practice-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+    .footer-links { flex-direction: column; gap: 2rem; }
+    .hero-left { padding: 5vh 5vw; }
+    .hero-stats-panel { grid-template-columns: 1fr; gap: 1rem; }
+    .sticky-phone { bottom: 1rem; right: 1rem; padding: 10px 16px; }
+    .nav-logo img { height: 42px; }
+    .testi-card { min-width: 280px; width: 280px; height: 280px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- BCI DISCLAIMER -->
+<div id="disclaimer" role="dialog" aria-modal="true" aria-labelledby="disc-title">
+  <div class="disc-box">
+    <img class="disc-logo" src="logo.svg" alt="Aisiri Law Chambers Logo">
+    <div class="disc-divider"></div>
+    <h2 id="disc-title">Disclaimer</h2>
+    <p>
+      This website is not an advertisement and is not intended to solicit clients. The information provided is for general informational purposes only and does not constitute legal advice.<br><br>
+      As per the rules of the <strong>Bar Council of India</strong>, advocates are not permitted to solicit work or advertise. By proceeding, you confirm that you are seeking information of your own accord and that no solicitation has been made.
+    </p>
+    <button class="disc-btn" onclick="enterSite()">I Agree &amp; Proceed</button>
+    <button class="disc-decline" onclick="window.history.back()">Decline &amp; Exit</button>
+  </div>
+</div>
+
+<!-- SITE -->
+<div id="site">
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <img src="logo.svg" alt="Aisiri Law Chambers">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#practice">Practice</a></li>
+      <li><a href="#advocate">Our Advocate</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="nav-cta">Consult Now</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <nav class="nav-mobile" id="mobile-nav">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#practice" onclick="closeMenu()">Practice Areas</a>
+    <a href="#advocate" onclick="closeMenu()">Our Advocate</a>
+    <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+    <a href="#contact" onclick="closeMenu()">Contact Us</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow reveal">Bengaluru &middot; Karnataka &middot; India</div>
+      <h1 class="hero-headline reveal">
+        Your Rights.<br>
+        <span class="gold">Defended with</span><br>
+        Integrity.
+      </h1>
+      <p class="hero-sub reveal">
+        Aisiri Law Chambers delivers principled, strategic legal counsel across criminal, civil, corporate, and family matters — with clarity and commitment at every step.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn-primary">Free Consultation</a>
+        <a href="#practice" class="btn-outline">Our Practice</a>
+      </div>
+    </div>
+    </section>
+
+  <!-- TRUST BAR -->
+  <div id="trust">
+    <div class="trust-item reveal">
+      <div class="trust-num">15+</div>
+      <div class="trust-label">Years Practice</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-num">500+</div>
+      <div class="trust-label">Cases Won</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-num">HC / SC</div>
+      <div class="trust-label">Court Enrollment</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-num">6</div>
+      <div class="trust-label">Practice Areas</div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-num">24/7</div>
+      <div class="trust-label">Client Support</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-visual reveal-left">
+      <div class="about-corner-tl"></div>
+      <div class="about-corner-br"></div>
+      <div class="about-frame">
+        <div class="about-frame-inner"></div>
+        <div class="about-frame-quote">
+          <p>"Every case carries a life, a livelihood, or a legacy. We treat it as such."</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-eyebrow reveal">About the Chamber</div>
+      <h2 class="section-title reveal">Built on trust.<br><span class="italic">Driven by results.</span></h2>
+      <p class="reveal">Aisiri Law Chambers is a general practice legal firm based in Bengaluru, Karnataka. We represent clients across criminal, civil, corporate, and family matters — with a client-first philosophy that prioritises honesty, clarity, and strategic thinking.</p>
+      <p class="reveal">We believe access to quality legal counsel should feel straightforward, not intimidating. From your first call to final order, we are with you every step of the way.</p>
+      <div class="about-values">
+        <div class="about-value reveal">
+          <div class="about-value-title">Clarity</div>
+          <p>We explain the law in plain language so you always know where you stand.</p>
+        </div>
+        <div class="about-value reveal">
+          <div class="about-value-title">Strategy</div>
+          <p>Every matter receives a structured plan — not just paperwork.</p>
+        </div>
+        <div class="about-value reveal">
+          <div class="about-value-title">Integrity</div>
+          <p>We give you the honest picture, even when it is difficult to hear.</p>
+        </div>
+        <div class="about-value reveal">
+          <div class="about-value-title">Dedication</div>
+          <p>Your case receives our complete attention from start to finish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE AREAS -->
+  <section id="practice">
+    <div class="section-eyebrow reveal">What We Do</div>
+    <h2 class="section-title reveal" style="color:var(--white);margin-bottom:.7rem;">Areas of <span style="color:var(--gold);font-style:italic;font-weight:300;">practice.</span></h2>
+    <p class="practice-intro reveal">We appear before District Courts, Sessions Courts, and the Karnataka High Court in the following areas of law.</p>
+    <div class="practice-grid">
+      <div class="practice-card reveal">
+        <div class="practice-num">01</div>
+        <div class="practice-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Criminal Defense</h3>
+        <p>Bail applications, anticipatory bail, trial defense, appeals, and representation in sessions and High Court criminal matters.</p>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-num">02</div>
+        <div class="practice-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+        </div>
+        <h3>Civil Litigation</h3>
+        <p>Suits for recovery, injunctions, specific performance, declaratory reliefs, and civil appeals before courts.</p>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-num">03</div>
+        <div class="practice-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Property Disputes</h3>
+        <p>Title disputes, partition suits, encroachment matters, land acquisition challenges, and RERA complaints.</p>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-num">04</div>
+        <div class="practice-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Family Law</h3>
+        <p>Divorce, maintenance, child custody, domestic violence, guardianship, and matrimonial property disputes.</p>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-num">05</div>
+        <div class="practice-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Corporate &amp; Commercial</h3>
+        <p>Contract review, business disputes, cheque dishonour (NI Act), debt recovery, and commercial agreements.</p>
+      </div>
+      <div class="practice-card reveal">
+        <div class="practice-num">06</div>
+        <div class="practice-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Writ &amp; Constitutional</h3>
+        <p>Writ petitions before the Karnataka High Court for fundamental rights, service matters, and governmental challenges.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="process-header">
+      <div>
+        <div class="section-eyebrow reveal">How We Work</div>
+        <h2 class="section-title reveal">From first call<br><span class="italic">to final order.</span></h2>
+      </div>
+      <p style="color:var(--mid);font-size:13.5px;max-width:260px;line-height:1.8;font-weight:300" class="reveal">A transparent process so you are never left wondering what comes next.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Free Consultation</div>
+        <p class="step-desc">We listen to your situation and give you an honest legal assessment — at no cost.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Case Analysis</div>
+        <p class="step-desc">We study documents, precedents, and strategy options, then present a clear action plan.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Representation</div>
+        <p class="step-desc">We handle all drafting, filing, and court appearances — keeping you informed throughout.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Resolution</div>
+        <p class="step-desc">Whether by verdict, settlement, or order — we pursue the best possible outcome for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVOCATE -->
+  <section id="advocate">
+    <div class="adv-content">
+      <div class="section-eyebrow reveal">Our Advocate</div>
+      <h2 class="section-title reveal">The person<br><span class="italic">in your corner.</span></h2>
+      <div class="adv-quote reveal">
+        "The law is complex. My job is to make it work — for you."
+      </div>
+      <p class="reveal">The founding advocate of Aisiri Law Chambers is enrolled with the Karnataka State Bar Council and admitted to practice before the Karnataka High Court. With over 15 years of experience across criminal, civil, and corporate matters, they bring deep courtroom knowledge and a reputation for meticulous preparation.</p>
+      <p class="reveal">Appearances include Sessions Courts, the Karnataka High Court, and various tribunals across Bengaluru — with a strong track record in bail applications, property disputes, and commercial litigation.</p>
+      <div class="adv-badges reveal">
+        <span class="adv-badge">Karnataka Bar Council</span>
+        <span class="adv-badge">Karnataka High Court</span>
+        <span class="adv-badge">15+ Years Practice</span>
+        <span class="adv-badge">LLB &middot; LLM</span>
+      </div>
+      <a href="#contact" class="btn-primary reveal" style="margin-top:.5rem;">Schedule a Consultation</a>
+    </div>
+    <div class="adv-photo-wrap">
+      <div class="adv-corner-tl"></div>
+      <div class="adv-photo">
+        <div class="adv-photo-bg"></div>
+        <img class="adv-photo-logo" src="logo.svg" alt="">
+        <div class="adv-caption">
+          <strong>Advocate [Your Name]</strong>
+          <span>Founding Advocate &middot; Aisiri Law Chambers</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-eyebrow reveal">Client Testimonials</div>
+    <h2 class="section-title reveal">What our clients <span class="italic">say.</span></h2>
+    <div class="testi-container">
+      <div class="testi-track">
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Handled my bail matter with incredible speed and transparency. I was kept informed at every step and the outcome exceeded my expectations."</p>
+            <div class="testi-author">Rajesh M. &middot; Criminal matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Our property dispute had dragged on for years before we came to Aisiri Law Chambers. They resolved it decisively. Highly recommended."</p>
+            <div class="testi-author">Priya &amp; Suresh K. &middot; Property dispute</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Very professional. Every step explained clearly. No unnecessary delays or costs. Would strongly recommend for any legal matter in Bengaluru."</p>
+            <div class="testi-author">Anil T. &middot; Commercial litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"The expertise and dedication shown by this firm is unmatched. They fought tirelessly for my case and achieved the best possible outcome."</p>
+            <div class="testi-author">Vikram Singh &middot; Criminal defense</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"An exceptional firm with exceptional lawyers. They provided clear guidance and strategic advice that made all the difference in my case."</p>
+            <div class="testi-author">Meera Patel &middot; Civil litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Impressed by their professionalism and thorough understanding of property law. Case resolved much faster than expected."</p>
+            <div class="testi-author">Rajesh Gupta &middot; Property matters</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Outstanding support throughout my family law matter. They understood my concerns and worked compassionately towards resolution."</p>
+            <div class="testi-author">Anjali Sharma &middot; Family law</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Best legal counsel I could have asked for. Transparent communication and excellent results made the entire process stress-free."</p>
+            <div class="testi-author">Ashok Kumar &middot; Corporate matters</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Their attention to detail and strategic planning in my litigation case was phenomenal. Highly satisfied with the outcome."</p>
+            <div class="testi-author">Divya Reddy &middot; Civil appeals</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Professional, trustworthy, and result-oriented. They exceeded my expectations at every stage of my case handling."</p>
+            <div class="testi-author">Sunil Rao &middot; Contract disputes</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Effective representation with a personal touch. They treated my case as if it were their own, and the results speak for themselves."</p>
+            <div class="testi-author">Neha Verma &middot; Criminal matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Incredibly knowledgeable about property law complexities. They navigated our multi-party dispute with remarkable skill."</p>
+            <div class="testi-author">Prakash Desai &middot; Property dispute</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"From consultation to resolution, their guidance was invaluable. I would recommend them without hesitation to anyone needing legal help."</p>
+            <div class="testi-author">Kavya Nair &middot; Family matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Demonstrated exceptional legal acumen and commitment to achieving the best outcome. Truly impressed by their work."</p>
+            <div class="testi-author">Rohit Jain &middot; Commercial litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Swift, professional, and results-driven approach. They made the legal process simple and understandable for me."</p>
+            <div class="testi-author">Priya Singh &middot; Civil litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Exceptional legal expertise combined with genuine care for client welfare. A firm you can truly trust and rely on."</p>
+            <div class="testi-author">Venkat Murthy &middot; Appeals</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Profoundly grateful for their meticulous preparation and strategic approach that led to favorable judgment in my case."</p>
+            <div class="testi-author">Sneha Gupta &middot; Criminal defense</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Outstanding legal representation with a human touch. They understood my situation and fought for justice effectively."</p>
+            <div class="testi-author">Arjun Iyer &middot; Property matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Their command over legal procedures and court nuances is remarkable. Delivered results beyond my expectations."</p>
+            <div class="testi-author">Deepika Roy &middot; Corporate matters</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Trustworthy, capable, and genuinely invested in client success. Highly recommend for any legal consultation needs."</p>
+            <div class="testi-author">Sanjay Nair &middot; Civil litigation</div>
+          </div>
+        </div>
+        <div class="testi-grid">
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Handled my bail matter with incredible speed and transparency. I was kept informed at every step and the outcome exceeded my expectations."</p>
+            <div class="testi-author">Rajesh M. &middot; Criminal matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Our property dispute had dragged on for years before we came to Aisiri Law Chambers. They resolved it decisively. Highly recommended."</p>
+            <div class="testi-author">Priya &amp; Suresh K. &middot; Property dispute</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Very professional. Every step explained clearly. No unnecessary delays or costs. Would strongly recommend for any legal matter in Bengaluru."</p>
+            <div class="testi-author">Anil T. &middot; Commercial litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"The expertise and dedication shown by this firm is unmatched. They fought tirelessly for my case and achieved the best possible outcome."</p>
+            <div class="testi-author">Vikram Singh &middot; Criminal defense</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"An exceptional firm with exceptional lawyers. They provided clear guidance and strategic advice that made all the difference in my case."</p>
+            <div class="testi-author">Meera Patel &middot; Civil litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Impressed by their professionalism and thorough understanding of property law. Case resolved much faster than expected."</p>
+            <div class="testi-author">Rajesh Gupta &middot; Property matters</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Outstanding support throughout my family law matter. They understood my concerns and worked compassionately towards resolution."</p>
+            <div class="testi-author">Anjali Sharma &middot; Family law</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Best legal counsel I could have asked for. Transparent communication and excellent results made the entire process stress-free."</p>
+            <div class="testi-author">Ashok Kumar &middot; Corporate matters</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Their attention to detail and strategic planning in my litigation case was phenomenal. Highly satisfied with the outcome."</p>
+            <div class="testi-author">Divya Reddy &middot; Civil appeals</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Professional, trustworthy, and result-oriented. They exceeded my expectations at every stage of my case handling."</p>
+            <div class="testi-author">Sunil Rao &middot; Contract disputes</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Effective representation with a personal touch. They treated my case as if it were their own, and the results speak for themselves."</p>
+            <div class="testi-author">Neha Verma &middot; Criminal matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Incredibly knowledgeable about property law complexities. They navigated our multi-party dispute with remarkable skill."</p>
+            <div class="testi-author">Prakash Desai &middot; Property dispute</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"From consultation to resolution, their guidance was invaluable. I would recommend them without hesitation to anyone needing legal help."</p>
+            <div class="testi-author">Kavya Nair &middot; Family matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Demonstrated exceptional legal acumen and commitment to achieving the best outcome. Truly impressed by their work."</p>
+            <div class="testi-author">Rohit Jain &middot; Commercial litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Swift, professional, and results-driven approach. They made the legal process simple and understandable for me."</p>
+            <div class="testi-author">Priya Singh &middot; Civil litigation</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Exceptional legal expertise combined with genuine care for client welfare. A firm you can truly trust and rely on."</p>
+            <div class="testi-author">Venkat Murthy &middot; Appeals</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Profoundly grateful for their meticulous preparation and strategic approach that led to favorable judgment in my case."</p>
+            <div class="testi-author">Sneha Gupta &middot; Criminal defense</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Outstanding legal representation with a human touch. They understood my situation and fought for justice effectively."</p>
+            <div class="testi-author">Arjun Iyer &middot; Property matter</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Their command over legal procedures and court nuances is remarkable. Delivered results beyond my expectations."</p>
+            <div class="testi-author">Deepika Roy &middot; Corporate matters</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testi-text">"Trustworthy, capable, and genuinely invested in client success. Highly recommend for any legal consultation needs."</p>
+            <div class="testi-author">Sanjay Nair &middot; Civil litigation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <div class="section-eyebrow reveal">Get in Touch</div>
+      <h2 class="section-title reveal">Start with a<br><span class="italic">free consultation.</span></h2>
+      <p class="reveal">Tell us about your situation and we will respond within 24 hours. All enquiries are strictly confidential.</p>
+      <div class="contact-details">
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Phone</div>
+            <div class="contact-detail-value"><a href="tel:+919999999999">+91 99999 99999</a></div>
+          </div>
+        </div>
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value"><a href="mailto:hello@aisirilaw.in">hello@aisirilaw.in</a></div>
+          </div>
+        </div>
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Office</div>
+            <div class="contact-detail-value">Aisiri Law Chambers<br>Bengaluru, Karnataka — 560001</div>
+          </div>
+        </div>
+        <div class="contact-detail reveal">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Hours</div>
+            <div class="contact-detail-value">Mon – Sat: 9 AM – 7 PM<br>Urgent matters: 24 / 7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-input" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number *</label>
+          <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Practice Area</label>
+          <select class="form-select">
+            <option value="">Select area of concern</option>
+            <option>Criminal Defense</option>
+            <option>Civil Litigation</option>
+            <option>Property Dispute</option>
+            <option>Family Law</option>
+            <option>Corporate &amp; Commercial</option>
+            <option>Writ &amp; Constitutional</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Brief Description</label>
+          <textarea class="form-textarea" placeholder="Briefly describe your matter (optional)"></textarea>
+        </div>
+        <p class="form-note">By submitting, you acknowledge no attorney-client relationship is formed until a formal engagement is agreed. All information is strictly confidential.</p>
+        <button type="submit" class="form-submit">Request Free Consultation &rarr;</button>
+        <div class="form-success" id="form-success">
+          Thank you. We have received your enquiry and will respond within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="Aisiri Law Chambers">
+        <p>Bengaluru &middot; Karnataka &middot; India</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-link-group">
+          <h4>Practice</h4>
+          <ul>
+            <li><a href="#practice">Criminal Defense</a></li>
+            <li><a href="#practice">Civil Litigation</a></li>
+            <li><a href="#practice">Property Disputes</a></li>
+            <li><a href="#practice">Family Law</a></li>
+            <li><a href="#practice">Corporate Law</a></li>
+          </ul>
+        </div>
+        <div class="footer-link-group">
+          <h4>Chamber</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#advocate">Our Advocate</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Aisiri Law Chambers. All rights reserved.</p>
+      <p class="footer-bci">Disclaimer: This website has been created in compliance with Bar Council of India Rules. No advertisement or solicitation is intended. Information provided is for general purposes only.</p>
+    </div>
+  </footer>
+
+  <!-- STICKY PHONE -->
+  <a href="tel:+919999999999" class="sticky-phone" aria-label="Call us">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+    Call Now
+  </a>
+
+</div>
+
+<script>
+  function enterSite() {
+    const d = document.getElementById('disclaimer');
+    d.style.transition = 'opacity .4s';
+    d.style.opacity = '0';
+    setTimeout(() => {
+      d.style.display = 'none';
+      const site = document.getElementById('site');
+      site.classList.add('visible');
+      initReveal();
+      triggerHero();
+    }, 400);
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('mobile-nav').classList.toggle('open');
+  });
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobile-nav').classList.remove('open');
+  }
+
+  function initReveal() {
+    const els = document.querySelectorAll('.reveal, .reveal-left');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 70);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => obs.observe(el));
+  }
+
+  function triggerHero() {
+    document.querySelectorAll('#hero .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 150 + i * 100);
+    });
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      e.target.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }, 1200);
+  }
+</script>
+</body>
+</html>
