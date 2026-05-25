@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Professional legal guidance for civil, property, family and documentation matters with honest support, clear advice and dedicated service.">
+<link rel="canonical" href="https://aisiriwlawchambers.com/">
 <title>AISIRI LAW CHAMBERS | Trusted Legal Guidance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -727,6 +728,39 @@
   .testi-name { font-size: 12px; font-weight: 600; color: var(--navy); }
   .testi-case { font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); font-weight: 500; }
 
+  /* ── FAQ ── */
+  #faq { background: var(--offwhite); }
+  .faq-grid {
+    margin-top: 3rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border);
+  }
+  .faq-item {
+    background: var(--offwhite);
+    padding: 1.8rem 2rem;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .faq-item:hover { background: var(--white); }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+    font-size: 13.5px; font-weight: 600; color: var(--navy); line-height: 1.5;
+  }
+  .faq-question::after {
+    content: '+'; font-size: 1.3rem; font-weight: 300;
+    color: var(--gold); flex-shrink: 0; transition: transform .25s;
+    line-height: 1;
+  }
+  .faq-item.open .faq-question::after { transform: rotate(45deg); }
+  .faq-answer {
+    display: none; margin-top: 1rem;
+    font-size: 13px; color: var(--mid); line-height: 1.85; font-weight: 300;
+  }
+  .faq-item.open .faq-answer { display: block; }
+  @media (max-width: 700px) {
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── CONTACT ── */
   #contact {
     display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; align-items: start;
@@ -948,7 +982,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#practice">Practice</a></li>
       <li><a href="#advocate">Our Advocate</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact" class="nav-cta">Consult Now</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
@@ -961,7 +995,7 @@
     <a href="#about" onclick="closeMenu()">About</a>
     <a href="#practice" onclick="closeMenu()">Practice Areas</a>
     <a href="#advocate" onclick="closeMenu()">Our Advocate</a>
-    <a href="#testimonials" onclick="closeMenu()">Testimonials</a>
+    <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="#contact" onclick="closeMenu()">Contact Us</a>
   </nav>
 
@@ -970,12 +1004,12 @@
     <div class="hero-left">
       <div class="hero-eyebrow reveal">Bengaluru &middot; Karnataka &middot; India</div>
       <h1 class="hero-headline reveal">
-        Your Rights.<br>
-        <span class="gold">Defended with</span><br>
-        Integrity.
+        Trusted Legal Support<br>
+        for Civil, Property, and <span class="gold">Family</span><br>
+        Matters
       </h1>
       <p class="hero-sub reveal">
-        Aisiri Law Chambers delivers principled, strategic legal counsel across criminal, civil, corporate, and family matters — with clarity and commitment at every step.
+        Get clear legal guidance, practical solutions, and professional representation for your case. We assist clients with civil disputes, property documentation, family matters, notices, petitions, and court proceedings.
       </p>
       <div class="hero-actions reveal">
         <a href="#contact" class="btn-primary">Free Consultation</a>
@@ -1022,25 +1056,25 @@
     </div>
     <div class="about-content">
       <div class="section-eyebrow reveal">About the Chamber</div>
-      <h2 class="section-title reveal">Built on trust.<br><span class="italic">Driven by results.</span></h2>
-      <p class="reveal">Aisiri Law Chambers is a general practice legal firm based in Bengaluru, Karnataka. We represent clients across criminal, civil, corporate, and family matters — with a client-first philosophy that prioritises honesty, clarity, and strategic thinking.</p>
-      <p class="reveal">We believe access to quality legal counsel should feel straightforward, not intimidating. From your first call to final order, we are with you every step of the way.</p>
+      <h2 class="section-title reveal">Professional Legal Guidance<br><span class="italic">With Integrity and</span><br><span class="italic">Responsibility.</span></h2>
+      <p class="reveal">AISIRI LAW CHAMBERS offers professional legal guidance with integrity, responsibility and client-oriented support. We offer practical legal solutions, full documentation assistance and effective legal representation for individuals and families. We provide reliable legal advice and support based on dedication and professional ethics.</p>
+      <p class="reveal">Guided by Advocate Shamala G S, our team prioritizes a careful understanding of each client's concerns. We deliver practical, responsible legal solutions with attention to detail and ethical practice. Our mission is to make legal services accessible, straightforward, and supportive for every individual and family.</p>
       <div class="about-values">
         <div class="about-value reveal">
-          <div class="about-value-title">Clarity</div>
-          <p>We explain the law in plain language so you always know where you stand.</p>
+          <div class="about-value-title">Clear Guidance</div>
+          <p>We explain the law in plain language so you always know where you stand and what to expect.</p>
         </div>
         <div class="about-value reveal">
-          <div class="about-value-title">Strategy</div>
-          <p>Every matter receives a structured plan — not just paperwork.</p>
+          <div class="about-value-title">Timely Service</div>
+          <p>Prompt responses, efficient handling, and timely service at every stage of your legal matter.</p>
         </div>
         <div class="about-value reveal">
-          <div class="about-value-title">Integrity</div>
-          <p>We give you the honest picture, even when it is difficult to hear.</p>
+          <div class="about-value-title">Documentation Support</div>
+          <p>Professional drafting and reviewing of agreements, notices, affidavits, and all legal documents.</p>
         </div>
         <div class="about-value reveal">
-          <div class="about-value-title">Dedication</div>
-          <p>Your case receives our complete attention from start to finish.</p>
+          <div class="about-value-title">Property Expertise</div>
+          <p>Thorough verification and due diligence on title deeds, encumbrances, and property transactions.</p>
         </div>
       </div>
     </div>
@@ -1050,55 +1084,55 @@
   <section id="practice">
     <div class="section-eyebrow reveal">What We Do</div>
     <h2 class="section-title reveal" style="color:var(--white);margin-bottom:.7rem;">Areas of <span style="color:var(--gold);font-style:italic;font-weight:300;">practice.</span></h2>
-    <p class="practice-intro reveal">We appear before District Courts, Sessions Courts, and the Karnataka High Court in the following areas of law.</p>
+    <p class="practice-intro reveal">Providing quality legal services in Bengaluru and Karnataka, we prioritize our clients with our extensive experience in civil, property, and family matters.</p>
     <div class="practice-grid">
       <div class="practice-card reveal">
         <div class="practice-num">01</div>
         <div class="practice-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Criminal Defense</h3>
-        <p>Bail applications, anticipatory bail, trial defense, appeals, and representation in sessions and High Court criminal matters.</p>
+        <h3>Civil Cases</h3>
+        <p>Expert representation for property disputes, ownership conflicts, boundary issues, title disputes, injunction matters, partition cases, and recovery of dues through legal proceedings.</p>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">02</div>
         <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <h3>Civil Litigation</h3>
-        <p>Suits for recovery, injunctions, specific performance, declaratory reliefs, and civil appeals before courts.</p>
+        <h3>Property &amp; Documentation</h3>
+        <p>Complete due diligence on title deeds, encumbrances, and land records. We draft sale agreements, settlement deeds, gift deeds, affidavits, indemnity bonds, and NOCs.</p>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">03</div>
         <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Property Disputes</h3>
-        <p>Title disputes, partition suits, encroachment matters, land acquisition challenges, and RERA complaints.</p>
+        <h3>Family &amp; Legal Support</h3>
+        <p>Compassionate and confidential support for family disputes involving inheritance, maintenance, guardianship, and family assets. Specialized guidance for women facing domestic issues, divorce, or harassment.</p>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">04</div>
         <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </div>
-        <h3>Family Law</h3>
-        <p>Divorce, maintenance, child custody, domestic violence, guardianship, and matrimonial property disputes.</p>
+        <h3>Notice Drafting</h3>
+        <p>Professionally drafted legal notices for disputes, demand letters, termination notices, breach of contract, and reply notices tailored to your specific situation.</p>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">05</div>
         <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
         </div>
-        <h3>Corporate &amp; Commercial</h3>
-        <p>Contract review, business disputes, cheque dishonour (NI Act), debt recovery, and commercial agreements.</p>
+        <h3>Petition Preparation</h3>
+        <p>Accurate drafting and filing of petitions for civil, family, and writ courts. We prepare every petition with precision, tailored to your case requirements and the relevant court's standards.</p>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">06</div>
         <div class="practice-icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
-        <h3>Writ &amp; Constitutional</h3>
-        <p>Writ petitions before the Karnataka High Court for fundamental rights, service matters, and governmental challenges.</p>
+        <h3>Court Representation</h3>
+        <p>Skilled advocacy across civil courts, district courts, family courts, and the Karnataka High Court — with dedicated representation at every stage of your proceedings.</p>
       </div>
     </div>
   </section>
@@ -1140,17 +1174,17 @@
   <section id="advocate">
     <div class="adv-content">
       <div class="section-eyebrow reveal">Our Advocate</div>
-      <h2 class="section-title reveal">The person<br><span class="italic">in your corner.</span></h2>
+      <h2 class="section-title reveal">Advocate<br><span class="italic">Shamala G S</span></h2>
       <div class="adv-quote reveal">
-        "The law is complex. My job is to make it work — for you."
+        "Every client deserves clear guidance, honest advice, and dedicated representation — that is what we commit to."
       </div>
-      <p class="reveal">The founding advocate of Aisiri Law Chambers is enrolled with the Karnataka State Bar Council and admitted to practice before the Karnataka High Court. With over 15 years of experience across criminal, civil, and corporate matters, they bring deep courtroom knowledge and a reputation for meticulous preparation.</p>
-      <p class="reveal">Appearances include Sessions Courts, the Karnataka High Court, and various tribunals across Bengaluru — with a strong track record in bail applications, property disputes, and commercial litigation.</p>
+      <p class="reveal">Aisiri Law Chambers is guided by Advocate Shamala G S, enrolled with the Karnataka State Bar Council. Our team prioritizes a careful understanding of each client's concerns and delivers practical, responsible legal solutions with attention to detail and ethical practice.</p>
+      <p class="reveal">We represent clients across civil courts, family courts, district courts, and the Karnataka High Court — with a strong focus on civil disputes, property matters, family law, and documentation support for individuals and families across Bengaluru and Karnataka.</p>
       <div class="adv-badges reveal">
         <span class="adv-badge">Karnataka Bar Council</span>
         <span class="adv-badge">Karnataka High Court</span>
-        <span class="adv-badge">15+ Years Practice</span>
-        <span class="adv-badge">LLB &middot; LLM</span>
+        <span class="adv-badge">Civil &amp; Family Law</span>
+        <span class="adv-badge">Property Specialist</span>
       </div>
       <a href="#contact" class="btn-primary reveal" style="margin-top:.5rem;">Schedule a Consultation</a>
     </div>
@@ -1160,7 +1194,7 @@
         <div class="adv-photo-bg"></div>
         <img class="adv-photo-logo" src="logo.svg" alt="">
         <div class="adv-caption">
-          <strong>Advocate [Your Name]</strong>
+          <strong>Advocate Shamala G S</strong>
           <span>Founding Advocate &middot; Aisiri Law Chambers</span>
         </div>
       </div>
@@ -1176,111 +1210,111 @@
         <div class="testi-grid">
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A false FIR by my former business partner left my family in panic. Within 48 hours, the team secured bail and laid out a clear defense roadmap. Their composure when ours was failing meant everything.&quot;</p>
+            <p class="testi-text">&quot;A boundary dispute with my neighbour had gone on for years. The team quickly secured an injunction, presented our title documents with precision, and resolved the matter without prolonged litigation. Truly professional.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m1.webp" alt="Rajesh Murthy">
               <div class="testi-meta">
                 <div class="testi-name">Rajesh Murthy</div>
-                <div class="testi-case">Criminal Defense</div>
+                <div class="testi-case">Property Dispute</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;My divorce could have turned bitter, but their counsel ensured a mutual settlement that protected my child&#39;s interests and my financial security. Compassionate when needed, firm when it mattered.&quot;</p>
+            <p class="testi-text">&quot;My divorce proceedings were handled with such compassion and clarity. They protected my child's interests and ensured a fair settlement. I always felt supported and informed throughout the entire process.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f1.webp" alt="Anjali Sharma">
               <div class="testi-meta">
                 <div class="testi-name">Anjali Sharma</div>
-                <div class="testi-case">Matrimonial Matter</div>
+                <div class="testi-case">Family Matter</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A 12-year ancestral property dispute with my cousins finally resolved in under 8 months. They surfaced documentation everyone else had overlooked. Direct, honest, outcome-focused.&quot;</p>
+            <p class="testi-text">&quot;A 10-year ancestral property partition dispute was resolved in under a year. They found documentation everyone else overlooked. Honest, direct, and completely focused on the outcome. I can't recommend them enough.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m2.webp" alt="Suresh Kamath">
               <div class="testi-meta">
                 <div class="testi-name">Suresh Kamath</div>
-                <div class="testi-case">Property Litigation</div>
+                <div class="testi-case">Partition Case</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;I walked in scared and unsure. They listened without judgment, secured a protection order quickly, and stood by me through every hearing. I owe them my peace of mind.&quot;</p>
+            <p class="testi-text">&quot;I was facing harassment and did not know my rights. They listened without judgment, explained everything clearly, and helped me obtain the necessary protection. Their support gave me back my confidence.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f2.webp" alt="Priya Nair">
               <div class="testi-meta">
                 <div class="testi-name">Priya Nair</div>
-                <div class="testi-case">Domestic Violence Act</div>
+                <div class="testi-case">Women's Legal Guidance</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A &#8377;40 lakh cheque bounced and the issuer became untraceable. The firm built an airtight Section 138 case and recovered the full amount with interest. Strategic and tenacious.&quot;</p>
+            <p class="testi-text">&quot;Before buying a property in Bengaluru, they conducted thorough due diligence on the title deeds and flagged an encumbrance the seller had hidden. Saved us from a potentially devastating transaction. Invaluable service.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m3.webp" alt="Anil Thakur">
               <div class="testi-meta">
                 <div class="testi-name">Anil Thakur</div>
-                <div class="testi-case">Cheque Bounce Recovery</div>
+                <div class="testi-case">Property Verification</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;Our builder delayed possession by 3 years and refused refund. The team filed before RERA, negotiated firmly, and got us a full refund with compensation. Saved our life savings.&quot;</p>
+            <p class="testi-text">&quot;Our tenant refused to vacate despite repeated requests. A well-drafted legal notice from Aisiri Law Chambers resolved the matter within weeks — without needing to go to court. Clear, swift, and effective.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f3.webp" alt="Divya Reddy">
               <div class="testi-meta">
                 <div class="testi-name">Divya Reddy</div>
-                <div class="testi-case">RERA / Consumer</div>
+                <div class="testi-case">Notice &amp; Recovery</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A vendor breached a critical supply contract right before our product launch. Their arbitration strategy got us interim relief in 2 weeks and a favourable award within 4 months.&quot;</p>
+            <p class="testi-text">&quot;A civil suit over unpaid dues had dragged on for two years elsewhere. Advocate Shamala took over, reorganized the case strategy, and we recovered the full amount within months. Thorough and tenacious.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m4.webp" alt="Ashok Kumar">
               <div class="testi-meta">
                 <div class="testi-name">Ashok Kumar</div>
-                <div class="testi-case">Commercial Arbitration</div>
+                <div class="testi-case">Civil Recovery Matter</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;Anonymous accounts started defaming my business on social media. They coordinated with the cyber cell, traced the source, and got everything taken down through proper legal channels.&quot;</p>
+            <p class="testi-text">&quot;My late mother's estate had multiple family claimants and no clarity. They handled the succession documentation, resolved the dispute amicably, and protected my rightful share. I am deeply grateful for their guidance.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m5.webp" alt="Vikram Singh">
               <div class="testi-meta">
                 <div class="testi-name">Vikram Singh</div>
-                <div class="testi-case">Cyber Defamation</div>
+                <div class="testi-case">Inheritance &amp; Succession</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;My late father&#39;s estate had three claimants and zero clarity. They handled the succession certificate, settled disputes amicably with relatives, and protected what was rightfully mine.&quot;</p>
+            <p class="testi-text">&quot;Needed a settlement deed drafted urgently for a family property transfer. Aisiri Law Chambers prepared it correctly, guided us through registration, and made the entire process smooth and stress-free. Highly recommended.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f4.webp" alt="Meera Patel">
               <div class="testi-meta">
                 <div class="testi-name">Meera Patel</div>
-                <div class="testi-case">Succession Matter</div>
+                <div class="testi-case">Settlement Deed</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;My father was seriously injured in an accident and the insurance company kept delaying. The team pushed through every MACT hearing and got compensation nearly 3x the initial offer.&quot;</p>
+            <p class="testi-text">&quot;Maintenance proceedings for my children after separation were handled with complete professionalism. They guided me through every step, spoke plainly about my options, and achieved a fair outcome. I felt genuinely cared for.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m6.webp" alt="Sunil Rao">
               <div class="testi-meta">
                 <div class="testi-name">Sunil Rao</div>
-                <div class="testi-case">Motor Accident Claim</div>
+                <div class="testi-case">Maintenance Matter</div>
               </div>
             </div>
           </div>
@@ -1288,115 +1322,163 @@
         <div class="testi-grid" aria-hidden="true">
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A false FIR by my former business partner left my family in panic. Within 48 hours, the team secured bail and laid out a clear defense roadmap. Their composure when ours was failing meant everything.&quot;</p>
+            <p class="testi-text">&quot;A boundary dispute with my neighbour had gone on for years. The team quickly secured an injunction, presented our title documents with precision, and resolved the matter without prolonged litigation. Truly professional.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m1.webp" alt="Rajesh Murthy">
               <div class="testi-meta">
                 <div class="testi-name">Rajesh Murthy</div>
-                <div class="testi-case">Criminal Defense</div>
+                <div class="testi-case">Property Dispute</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;My divorce could have turned bitter, but their counsel ensured a mutual settlement that protected my child&#39;s interests and my financial security. Compassionate when needed, firm when it mattered.&quot;</p>
+            <p class="testi-text">&quot;My divorce proceedings were handled with such compassion and clarity. They protected my child's interests and ensured a fair settlement. I always felt supported and informed throughout the entire process.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f1.webp" alt="Anjali Sharma">
               <div class="testi-meta">
                 <div class="testi-name">Anjali Sharma</div>
-                <div class="testi-case">Matrimonial Matter</div>
+                <div class="testi-case">Family Matter</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A 12-year ancestral property dispute with my cousins finally resolved in under 8 months. They surfaced documentation everyone else had overlooked. Direct, honest, outcome-focused.&quot;</p>
+            <p class="testi-text">&quot;A 10-year ancestral property partition dispute was resolved in under a year. They found documentation everyone else overlooked. Honest, direct, and completely focused on the outcome. I can't recommend them enough.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m2.webp" alt="Suresh Kamath">
               <div class="testi-meta">
                 <div class="testi-name">Suresh Kamath</div>
-                <div class="testi-case">Property Litigation</div>
+                <div class="testi-case">Partition Case</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;I walked in scared and unsure. They listened without judgment, secured a protection order quickly, and stood by me through every hearing. I owe them my peace of mind.&quot;</p>
+            <p class="testi-text">&quot;I was facing harassment and did not know my rights. They listened without judgment, explained everything clearly, and helped me obtain the necessary protection. Their support gave me back my confidence.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f2.webp" alt="Priya Nair">
               <div class="testi-meta">
                 <div class="testi-name">Priya Nair</div>
-                <div class="testi-case">Domestic Violence Act</div>
+                <div class="testi-case">Women's Legal Guidance</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A &#8377;40 lakh cheque bounced and the issuer became untraceable. The firm built an airtight Section 138 case and recovered the full amount with interest. Strategic and tenacious.&quot;</p>
+            <p class="testi-text">&quot;Before buying a property in Bengaluru, they conducted thorough due diligence on the title deeds and flagged an encumbrance the seller had hidden. Saved us from a potentially devastating transaction. Invaluable service.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m3.webp" alt="Anil Thakur">
               <div class="testi-meta">
                 <div class="testi-name">Anil Thakur</div>
-                <div class="testi-case">Cheque Bounce Recovery</div>
+                <div class="testi-case">Property Verification</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;Our builder delayed possession by 3 years and refused refund. The team filed before RERA, negotiated firmly, and got us a full refund with compensation. Saved our life savings.&quot;</p>
+            <p class="testi-text">&quot;Our tenant refused to vacate despite repeated requests. A well-drafted legal notice from Aisiri Law Chambers resolved the matter within weeks — without needing to go to court. Clear, swift, and effective.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f3.webp" alt="Divya Reddy">
               <div class="testi-meta">
                 <div class="testi-name">Divya Reddy</div>
-                <div class="testi-case">RERA / Consumer</div>
+                <div class="testi-case">Notice &amp; Recovery</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;A vendor breached a critical supply contract right before our product launch. Their arbitration strategy got us interim relief in 2 weeks and a favourable award within 4 months.&quot;</p>
+            <p class="testi-text">&quot;A civil suit over unpaid dues had dragged on for two years elsewhere. Advocate Shamala took over, reorganized the case strategy, and we recovered the full amount within months. Thorough and tenacious.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m4.webp" alt="Ashok Kumar">
               <div class="testi-meta">
                 <div class="testi-name">Ashok Kumar</div>
-                <div class="testi-case">Commercial Arbitration</div>
+                <div class="testi-case">Civil Recovery Matter</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;Anonymous accounts started defaming my business on social media. They coordinated with the cyber cell, traced the source, and got everything taken down through proper legal channels.&quot;</p>
+            <p class="testi-text">&quot;My late mother's estate had multiple family claimants and no clarity. They handled the succession documentation, resolved the dispute amicably, and protected my rightful share. I am deeply grateful for their guidance.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m5.webp" alt="Vikram Singh">
               <div class="testi-meta">
                 <div class="testi-name">Vikram Singh</div>
-                <div class="testi-case">Cyber Defamation</div>
+                <div class="testi-case">Inheritance &amp; Succession</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;My late father&#39;s estate had three claimants and zero clarity. They handled the succession certificate, settled disputes amicably with relatives, and protected what was rightfully mine.&quot;</p>
+            <p class="testi-text">&quot;Needed a settlement deed drafted urgently for a family property transfer. Aisiri Law Chambers prepared it correctly, guided us through registration, and made the entire process smooth and stress-free. Highly recommended.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="f4.webp" alt="Meera Patel">
               <div class="testi-meta">
                 <div class="testi-name">Meera Patel</div>
-                <div class="testi-case">Succession Matter</div>
+                <div class="testi-case">Settlement Deed</div>
               </div>
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-text">&quot;My father was seriously injured in an accident and the insurance company kept delaying. The team pushed through every MACT hearing and got compensation nearly 3x the initial offer.&quot;</p>
+            <p class="testi-text">&quot;Maintenance proceedings for my children after separation were handled with complete professionalism. They guided me through every step, spoke plainly about my options, and achieved a fair outcome. I felt genuinely cared for.&quot;</p>
             <div class="testi-footer">
               <img class="testi-photo" src="m6.webp" alt="Sunil Rao">
               <div class="testi-meta">
                 <div class="testi-name">Sunil Rao</div>
-                <div class="testi-case">Motor Accident Claim</div>
+                <div class="testi-case">Maintenance Matter</div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-eyebrow reveal">Common Questions</div>
+    <h2 class="section-title reveal">Frequently asked <span class="italic">questions.</span></h2>
+    <div class="faq-grid">
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">What types of legal matters do you handle?</div>
+        <div class="faq-answer">We assist with civil disputes, property matters, family issues, legal notices, petition drafting, and court representation across civil courts, district courts, family courts, and the Karnataka High Court.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Do you handle property disputes?</div>
+        <div class="faq-answer">Yes. We help with ownership disputes, boundary issues, title disputes, possession matters, injunction applications, partition cases, and all related property concerns.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Can you verify property documents before purchase?</div>
+        <div class="faq-answer">Yes. We provide thorough property verification and due diligence, including review of title deeds, encumbrances, approvals, and land records before you buy or sell.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Do you draft legal notices and replies?</div>
+        <div class="faq-answer">Yes. We draft legal notices, reply notices, demand letters, and other legal communications based on your specific case and its requirements.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Do you assist with family disputes?</div>
+        <div class="faq-answer">Yes. We handle family disputes involving inheritance, maintenance, guardianship, family assets, and related matters with care and confidentiality.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Can you help with divorce or women-related legal issues?</div>
+        <div class="faq-answer">Yes. We provide legal guidance for divorce, domestic issues, harassment, maintenance, and property rights matters with specialized support for women.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Do you prepare petitions for court cases?</div>
+        <div class="faq-answer">Yes. We draft and prepare petitions for civil, family, and writ matters, tailored precisely to your case requirements and the relevant court's standards.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Will you represent me in court if needed?</div>
+        <div class="faq-answer">Yes. We provide dedicated legal representation in civil courts, district courts, family courts, and the Karnataka High Court at every stage of your case.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">How do I start a consultation?</div>
+        <div class="faq-answer">Contact us with a brief description of your issue. We will assess your matter and guide you on the next steps. Initial consultations are free and strictly confidential.</div>
+      </div>
+      <div class="faq-item reveal" onclick="this.classList.toggle('open')">
+        <div class="faq-question">Do you help with sale agreements and settlement deeds?</div>
+        <div class="faq-answer">Yes. We draft and review sale agreements, settlement deeds, gift deeds, indemnity bonds, NOCs, and other important legal documents to protect your interests in every transaction.</div>
       </div>
     </div>
   </section>
@@ -1464,12 +1546,14 @@
           <label class="form-label">Practice Area</label>
           <select class="form-select">
             <option value="">Select area of concern</option>
-            <option>Criminal Defense</option>
-            <option>Civil Litigation</option>
+            <option>Civil Dispute</option>
             <option>Property Dispute</option>
-            <option>Family Law</option>
-            <option>Corporate &amp; Commercial</option>
-            <option>Writ &amp; Constitutional</option>
+            <option>Property Verification / Documentation</option>
+            <option>Family Matter</option>
+            <option>Women-Related Legal Guidance</option>
+            <option>Notice Drafting</option>
+            <option>Petition Preparation</option>
+            <option>Court Representation</option>
             <option>Other</option>
           </select>
         </div>
@@ -1497,11 +1581,11 @@
         <div class="footer-link-group">
           <h4>Practice</h4>
           <ul>
-            <li><a href="#practice">Criminal Defense</a></li>
-            <li><a href="#practice">Civil Litigation</a></li>
-            <li><a href="#practice">Property Disputes</a></li>
-            <li><a href="#practice">Family Law</a></li>
-            <li><a href="#practice">Corporate Law</a></li>
+            <li><a href="#practice">Civil Cases</a></li>
+            <li><a href="#practice">Property &amp; Documentation</a></li>
+            <li><a href="#practice">Family &amp; Legal Support</a></li>
+            <li><a href="#practice">Notice Drafting</a></li>
+            <li><a href="#practice">Court Representation</a></li>
           </ul>
         </div>
         <div class="footer-link-group">
@@ -1510,7 +1594,7 @@
             <li><a href="#about">About Us</a></li>
             <li><a href="#advocate">Our Advocate</a></li>
             <li><a href="#process">Our Process</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
