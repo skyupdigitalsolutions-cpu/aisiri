@@ -669,26 +669,104 @@
 
   /* ── ADVOCATE ── */
   #advocate {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 7vw;
-    align-items: center;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: flex-start;
   }
-  .adv-content .section-title { margin-bottom: 1.2rem; }
-  .adv-content p { color: var(--mid); font-size: 14px; max-width: 460px; margin-bottom: 1.1rem; font-weight: 300; }
-  .adv-quote {
-    border-left: 3px solid var(--gold);
-    padding: 1rem 1.5rem;
-    font-size: 1.05rem; font-weight: 300; font-style: italic;
-    color: var(--navy); line-height: 1.65;
-    margin: 1.8rem 0; background: rgba(201,168,76,.06);
+  
+  .adv-left .section-title { margin-bottom: 1.5rem; }
+  .adv-left p { color: var(--mid); font-size: 13.5px; margin-bottom: 0.9rem; font-weight: 300; line-height: 1.7; }
+  
+  .adv-right {
+    display: flex; flex-direction: column; gap: 1.5rem;
   }
-  .adv-badges {
-    display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0;
+  
+  .adv-header-card {
+    background: rgba(201,168,76,.08);
+    border: 1px solid rgba(201,168,76,.2);
+    padding: 1.2rem 1.5rem;
+    border-radius: 4px;
   }
-  .adv-badge {
-    font-size: 10px; font-weight: 600; letter-spacing: .1em;
-    text-transform: uppercase; padding: 5px 12px;
-    border: 1px solid var(--border);
-    color: var(--navy); background: transparent;
+  .adv-title {
+    font-size: 13px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.8rem;
+  }
+  .adv-contact {
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .adv-phone, .adv-email {
+    font-size: 12px; color: var(--navy); font-weight: 500;
+  }
+  
+  .adv-section {
+    margin-bottom: 0;
+  }
+  .adv-section-title {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.7rem;
+    border-bottom: 1px solid rgba(201,168,76,.2);
+    padding-bottom: 0.5rem;
+  }
+  .adv-section p {
+    font-size: 13px; color: var(--mid); line-height: 1.75; font-weight: 300;
+  }
+  
+  .adv-skills {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+  }
+  .adv-skill {
+    font-size: 11.5px; font-weight: 500;
+    padding: 6px 14px;
+    background: rgba(201,168,76,.12);
+    color: var(--navy);
+    border: 1px solid rgba(201,168,76,.25);
+    border-radius: 20px;
+  }
+  
+  .adv-exp {
+    display: flex; flex-direction: column; gap: 1.2rem;
+  }
+  .adv-exp-item {
+    padding: 0.8rem 0;
+  }
+  .adv-exp-title {
+    font-size: 12.5px; font-weight: 600;
+    color: var(--navy); margin-bottom: 0.3rem;
+  }
+  .adv-exp-meta {
+    font-size: 11px; color: var(--gold);
+    font-weight: 500; letter-spacing: .05em;
+    margin-bottom: 0.6rem;
+  }
+  .adv-exp-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.5rem;
+    margin-left: 0;
+  }
+  .adv-exp-list li {
+    font-size: 12px; color: var(--mid);
+    padding-left: 1.2rem; position: relative;
+    font-weight: 300; line-height: 1.5;
+  }
+  .adv-exp-list li::before {
+    content: '•'; position: absolute;
+    left: 0; color: var(--gold); font-weight: 600;
+  }
+  
+  .adv-edu {
+    display: flex; flex-direction: column; gap: 0.8rem;
+  }
+  .adv-edu-item {
+    padding: 0.6rem 0;
+  }
+  .adv-edu-degree {
+    font-size: 12.5px; font-weight: 600;
+    color: var(--navy); margin-bottom: 0.2rem;
+  }
+  .adv-edu-meta {
+    font-size: 11px; color: var(--gold);
+    font-weight: 500;
   }
 
   .adv-photo-wrap { position: relative; }
@@ -1230,8 +1308,8 @@
     .hero-left { padding: 4rem 4vw; max-width: 100%; }
     
     #about, #advocate, #contact { grid-template-columns: 1fr; }
-    .about-right-col { padding-top: 0; }
-    .adv-photo-wrap { display: none; }
+    .adv-left { order: 1; }
+    .adv-right { order: 2; }
     
     .practice-grid { grid-template-columns: repeat(2, 1fr); }
     .process-steps { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
@@ -1841,30 +1919,94 @@
 
   <!-- ADVOCATE -->
   <section id="advocate">
-    <div class="adv-content">
+    <div class="adv-left">
       <div class="section-eyebrow reveal">Our Advocate</div>
       <h2 class="section-title reveal">Advocate<br><span class="italic">Shamala G S</span></h2>
-      <div class="adv-quote reveal">
-        "Every client deserves clear guidance, honest advice, and dedicated representation — that is what we commit to."
+
+      <div class="adv-section reveal">
+        <h3 class="adv-section-title">Profile</h3>
+        <p>Experienced and self-motivated Advocate with expertise in dealing with Family, Civil, Criminal, High Court cases & Marriage Counselling. Highly competent communicator skilled in multitasking and effectively communicating with others. Able to effectively self-manage during independent projects, as well as collaborate as part of a productive team.</p>
       </div>
-      <p class="reveal">Aisiri Law Chambers is guided by Advocate Shamala G S, enrolled with the Karnataka State Bar Council. Our team prioritizes a careful understanding of each client's concerns and delivers practical, responsible legal solutions with attention to detail and ethical practice.</p>
-      <p class="reveal">We represent clients across civil courts, family courts, district courts, and the Karnataka High Court — with a strong focus on civil disputes, property matters, family law, and documentation support for individuals and families across Bengaluru and Karnataka.</p>
-      <div class="adv-badges reveal">
-        <span class="adv-badge">Karnataka Bar Council</span>
-        <span class="adv-badge">Karnataka High Court</span>
-        <span class="adv-badge">Civil &amp; Family Law</span>
-        <span class="adv-badge">Property Specialist</span>
+
+      <div class="adv-section reveal">
+        <h3 class="adv-section-title">Experience</h3>
+        <div class="adv-exp">
+          <div class="adv-exp-item">
+            <div class="adv-exp-title">Practising Advocate</div>
+            <div class="adv-exp-meta">Self-Employed, Bengaluru • January 2019 – Present</div>
+            <ul class="adv-exp-list">
+              <li>Served as a strong advocate for clients striving to get justice in legal issues</li>
+              <li>Serving as a Counselor in Psychotherapy for physically challenged children</li>
+              <li>Passionate Agriculturist & Social Worker</li>
+              <li>Student Community Secretary for Bangalore City Youth Congress</li>
+            </ul>
+          </div>
+          <div class="adv-exp-item">
+            <div class="adv-exp-title">Social Worker</div>
+            <div class="adv-exp-meta">Self-Employed, Bengaluru</div>
+            <ul class="adv-exp-list">
+              <li>Spreading legal awareness through camps for middle-class community</li>
+              <li>Coordinating with Government entities for public issues</li>
+              <li>Active Member of Junior Chamber International (JCI)</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <a href="#contact" class="btn-primary reveal" style="margin-top:.5rem;">Schedule a Consultation</a>
+
+      <div class="adv-section reveal">
+        <h3 class="adv-section-title">Education</h3>
+        <div class="adv-edu">
+          <div class="adv-edu-item">
+            <div class="adv-edu-degree">Bachelor of Laws (LLB)</div>
+            <div class="adv-edu-meta">Bangalore University • June 2014 – April 2018</div>
+          </div>
+          <div class="adv-edu-item">
+            <div class="adv-edu-degree">Bachelor of Arts</div>
+            <div class="adv-edu-meta">Bangalore University • June 1990 – April 1993</div>
+          </div>
+          <div class="adv-edu-item">
+            <div class="adv-edu-degree">Diploma in Counselling Skills</div>
+            <div class="adv-edu-meta">Banjara Academy • January 2009 – June 2009</div>
+          </div>
+          <div class="adv-edu-item">
+            <div class="adv-edu-degree">Diploma in Life Skills</div>
+            <div class="adv-edu-meta">Banjara Academy • January 2011 – June 2011</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn-primary reveal" style="margin-top:1.5rem;">Schedule a Consultation</a>
     </div>
-    <div class="adv-photo-wrap">
-      <div class="adv-corner-tl"></div>
-      <div class="adv-photo">
-        <div class="adv-photo-bg"></div>
-        <img class="adv-photo-logo" src="logo.svg" alt="">
-        <div class="adv-caption">
-          <strong>Advocate Shamala G S</strong>
-          <span>Founding Advocate &middot; Aisiri Law Chambers</span>
+
+    <div class="adv-right">
+      <div class="adv-photo-wrap">
+        <div class="adv-corner-tl"></div>
+        <div class="adv-photo">
+          <div class="adv-photo-bg"></div>
+          <img class="adv-photo-logo" src="logo.svg" alt="">
+          <div class="adv-caption">
+            <strong>Advocate Shamala G S</strong>
+            <span>Founding Advocate &middot; Aisiri Law Chambers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="adv-header-card reveal">
+        <div class="adv-title">Advocate • Bengaluru, India</div>
+        <div class="adv-contact">
+          <span class="adv-phone">9742914065</span>
+          <span class="adv-email">shamalasachin@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="adv-section reveal">
+        <h3 class="adv-section-title">Key Skills</h3>
+        <div class="adv-skills">
+          <span class="adv-skill">Teamwork</span>
+          <span class="adv-skill">Leadership</span>
+          <span class="adv-skill">Legal Drafting</span>
+          <span class="adv-skill">Multitasking</span>
+          <span class="adv-skill">Communication</span>
         </div>
       </div>
     </div>
@@ -2165,7 +2307,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Phone</div>
-            <div class="contact-detail-value"><a href="tel:+919999999999">+91 99999 99999</a></div>
+            <div class="contact-detail-value"><a href="tel:+917406998111">7406998111</a></div>
           </div>
         </div>
         <div class="contact-detail reveal">
@@ -2183,7 +2325,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Office</div>
-            <div class="contact-detail-value">Aisiri Law Chambers<br>Bengaluru, Karnataka — 560001</div>
+            <div class="contact-detail-value">Shamala G S - Advocate & Legal Consultant<br>Dhanalakshmi Layout, Virupakshapura Vidyaranyapura, Bangalore</div>
           </div>
         </div>
         <div class="contact-detail reveal">
@@ -2192,7 +2334,7 @@
           </div>
           <div>
             <div class="contact-detail-label">Hours</div>
-            <div class="contact-detail-value">Mon – Sat: 9 AM – 7 PM<br>Urgent matters: 24 / 7</div>
+            <div class="contact-detail-value">9 AM – 6 PM (Monday to Saturday)</div>
           </div>
         </div>
       </div>
