@@ -84,16 +84,37 @@
     font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; cursor: pointer;
     border: none; transition: background .2s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
   .disc-btn:hover { background: var(--gold2); }
+  .disc-btn:active { transform: scale(0.98); }
   .disc-decline {
     display: block; margin-top: 1rem;
     font-size: 10.5px; color: rgba(248,246,241,.25);
     cursor: pointer; letter-spacing: .06em;
     text-transform: uppercase; background: none; border: none;
     font-family: var(--font);
+    padding: 8px 12px;
+    min-height: 44px;
+    transition: color .2s;
   }
   .disc-decline:hover { color: rgba(248,246,241,.45); }
+  
+  @media (max-width: 480px) {
+    #disclaimer { padding: 1rem; }
+    .disc-box {
+      max-width: 100%;
+      padding: 2rem 1.5rem;
+    }
+    .disc-logo { width: 120px; padding: 12px; margin-bottom: 1.2rem; }
+    .disc-box h2 { font-size: 1rem; margin-bottom: 1rem; }
+    .disc-box p { font-size: 12px; margin-bottom: 1.5rem; line-height: 1.8; }
+    .disc-btn { padding: 12px 28px; font-size: 10px; }
+  }
 
   /* ── SITE ── */
   #site { display: none; }
@@ -140,6 +161,10 @@
   .nav-hamburger {
     display: none; flex-direction: column; gap: 5px;
     cursor: pointer; background: none; border: none; padding: 4px;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    align-items: center;
   }
   .nav-hamburger span {
     display: block; width: 24px; height: 1.5px;
@@ -153,6 +178,8 @@
     display: none; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
     background: var(--white); z-index: 99; padding: 2.5rem 2rem;
     flex-direction: column; gap: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 76px);
   }
   .nav-mobile.open { display: flex; }
   .nav-mobile a {
@@ -160,8 +187,16 @@
     color: var(--navy); text-decoration: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 1rem; transition: color .2s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .nav-mobile a:hover { color: var(--gold); }
+  
+  @media (max-width: 480px) {
+    .nav-mobile { top: 60px; max-height: calc(100vh - 60px); padding: 1.5rem; gap: 1rem; }
+    .nav-mobile a { font-size: 1.2rem; padding-bottom: 0.8rem; }
+  }
 
   /* ── HERO ── */
   #hero {
@@ -225,6 +260,11 @@
     text-decoration: none; border: 2px solid var(--gold);
     transition: background .25s, color .25s, border-color .25s, transform .25s;
     display: inline-block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
   .btn-primary:hover { 
     background: var(--white); 
@@ -232,6 +272,7 @@
     color: var(--navy);
     transform: translateY(-2px);
   }
+  .btn-primary:active { transform: translateY(0); }
 
   .btn-outline {
     padding: 14px 34px;
@@ -241,6 +282,11 @@
     text-decoration: none; border: 2px solid var(--white);
     transition: background .25s, color .25s, transform .25s;
     display: inline-block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
   .btn-outline:hover { 
     background: var(--gold); 
@@ -248,6 +294,7 @@
     border-color: var(--gold);
     transform: translateY(-2px);
   }
+  .btn-outline:active { transform: translateY(0); }
 
   .hero-right {
     display: none;
@@ -740,16 +787,26 @@
     padding: 1.8rem 2rem;
     cursor: pointer;
     transition: background .2s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
   .faq-item:hover { background: var(--white); }
   .faq-question {
     display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
     font-size: 13.5px; font-weight: 600; color: var(--navy); line-height: 1.5;
+    width: 100%;
   }
   .faq-question::after {
     content: '+'; font-size: 1.3rem; font-weight: 300;
     color: var(--gold); flex-shrink: 0; transition: transform .25s;
     line-height: 1;
+    min-width: 32px;
+    text-align: center;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .faq-item.open .faq-question::after { transform: rotate(45deg); }
   .faq-answer {
@@ -795,14 +852,20 @@
     background: transparent; color: var(--navy);
     outline: none; transition: border-color .2s;
     border-radius: 0; -webkit-appearance: none;
+    min-height: 44px;
   }
   .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--gold); }
-  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-textarea { 
+    resize: vertical; 
+    min-height: 120px;
+    padding: 12px 15px;
+  }
   .form-select {
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat; background-position: right 14px center;
     background-color: transparent;
+    padding-right: 40px;
   }
   .form-note { font-size: 11px; color: var(--mid); line-height: 1.7; font-weight: 300; }
   .form-submit {
@@ -812,8 +875,13 @@
     font-size: 11px; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; cursor: pointer;
     transition: background .25s; margin-top: .4rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .form-submit:hover { background: var(--gold); color: var(--navy); }
+  .form-submit:active { transform: scale(0.98); }
   .form-success {
     display: none; padding: 1.5rem;
     border: 1px solid var(--border-gold);
@@ -870,6 +938,184 @@
   }
   .sticky-phone svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
 
+  /* ── COMMITMENTS LIST (About section) ── */
+  .commitments-block {
+    margin-top: 2rem;
+    padding: 1.5rem 1.6rem;
+    background: rgba(201,168,76,.05);
+    border-left: 3px solid var(--gold);
+  }
+  .commitments-title {
+    font-size: 10.5px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .commitments-title::before {
+    content:''; display:inline-block;
+    width:20px; height:1.5px; background:var(--gold);
+  }
+  .commitments-list {
+    list-style: none;
+    display: grid; grid-template-columns: 1fr;
+    gap: .65rem;
+  }
+  .commitments-list li {
+    font-size: 12.5px; color: var(--mid);
+    padding-left: 1.4rem; position: relative;
+    font-weight: 300; line-height: 1.6;
+  }
+  .commitments-list li::before {
+    content: ''; position: absolute;
+    left: 0; top: .55rem;
+    width: 7px; height: 7px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+  .mission-statement {
+    margin-top: 1.5rem;
+    padding: 1.2rem 1.5rem;
+    border: 1px dashed var(--border-gold);
+    font-size: 13px; font-weight: 300; font-style: italic;
+    color: var(--navy); line-height: 1.7;
+    background: transparent;
+  }
+  .mission-statement strong {
+    font-size: 10px; font-style: normal; font-weight: 600;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold); display: block; margin-bottom: 6px;
+  }
+
+  /* ── PRACTICE SUB-SERVICES ── */
+  .practice-tagline {
+    font-size: 12.5px; color: rgba(248,246,241,.55);
+    font-style: italic; line-height: 1.65;
+    margin-bottom: 1.1rem; font-weight: 300;
+  }
+  .practice-services-list {
+    margin-top: 1.1rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+    list-style: none;
+    display: flex; flex-direction: column;
+    gap: .9rem;
+  }
+  .practice-services-list li {
+    font-size: 11.5px; color: rgba(248,246,241,.55);
+    padding-left: 1.2rem; position: relative;
+    line-height: 1.65; font-weight: 300;
+  }
+  .practice-services-list li strong {
+    color: rgba(248,246,241,.95);
+    font-weight: 600;
+    letter-spacing: .03em;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .practice-services-list li::before {
+    content: '';
+    position: absolute; left: 0; top: .45rem;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* ── WHY CHOOSE US ── */
+  #why {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  #why::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -10%;
+    width: 40%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(201,168,76,.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .why-header {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 4rem;
+    position: relative; z-index: 1;
+  }
+  .why-intro p {
+    color: var(--mid);
+    font-size: 14px;
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+  .why-intro p:last-child { margin-bottom: 0; }
+  .why-subtitle {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .why-subtitle::before {
+    content: ''; display: inline-block;
+    width: 24px; height: 1.5px;
+    background: var(--gold);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .why-item {
+    padding: 2rem 1.8rem;
+    background: var(--offwhite);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    position: relative;
+    transition: transform .3s, box-shadow .3s, background .3s;
+    animation: slideInStats .6s ease forwards;
+  }
+  .why-item:nth-child(1) { animation-delay: 0.1s; }
+  .why-item:nth-child(2) { animation-delay: 0.2s; }
+  .why-item:nth-child(3) { animation-delay: 0.3s; }
+  .why-item:nth-child(4) { animation-delay: 0.4s; }
+  .why-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(26,39,68,.1);
+    background: var(--white);
+  }
+  .why-item-icon {
+    width: 50px; height: 50px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+    transition: background .3s;
+  }
+  .why-item:hover .why-item-icon { background: var(--gold); }
+  .why-item-icon svg {
+    width: 22px; height: 22px;
+    stroke: var(--gold);
+    fill: none; stroke-width: 1.6;
+    transition: stroke .3s;
+  }
+  .why-item:hover .why-item-icon svg { stroke: var(--navy); }
+  .why-item-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: .6rem;
+  }
+  .why-item-desc {
+    font-size: 12.5px;
+    color: var(--mid);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes slideInRight {
     from { opacity: 0; transform: translateX(-100%); }
@@ -923,33 +1169,325 @@
   .reveal-left.visible { opacity: 1; transform: translateX(0); }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    #hero { padding-top: 76px; }
+  /* Large Screens (Desktop) - 1200px+ */
+  @media (min-width: 1200px) {
+    nav { padding: 0 4vw; }
+    section { padding: 7rem 6vw; }
+    .practice-grid { grid-template-columns: repeat(3, 1fr); }
+    .process-steps { grid-template-columns: repeat(4, 1fr); }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* Tablets and Medium Screens - 1024px to 1199px */
+  @media (max-width: 1199px) {
+    nav { padding: 0 3vw; }
+    section { padding: 5.5rem 4.5vw; }
+    .hero-headline { font-size: clamp(2.2rem, 4vw, 3.8rem); }
+    .section-title { font-size: clamp(1.6rem, 3vw, 2.8rem); }
+  }
+
+  /* Tablets - 769px to 1023px */
+  @media (max-width: 1023px) {
+    nav { padding: 0 3vw; height: 70px; }
+    .nav-logo img { height: 48px; }
+    section { padding: 4.5rem 4vw; }
+    .hero-headline { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    .hero-sub { font-size: 13px; }
+    .section-title { font-size: clamp(1.5rem, 2.8vw, 2.4rem); }
+    
+    #hero { padding-top: 70px; }
     .hero-right { display: none; }
     .hero-stats-panel { display: none; }
+    .hero-left { padding: 4rem 4vw; max-width: 100%; }
+    
     #about, #advocate, #contact { grid-template-columns: 1fr; }
     .about-visual { display: none; }
     .adv-photo-wrap { display: none; }
-    .practice-grid { grid-template-columns: 1fr 1fr; }
-    .testi-card { min-width: 300px; width: 300px; min-height: 340px; height: auto; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    
+    .practice-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .process-steps::before { display: none; }
+    .why-header { grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    
+    .testi-card { min-width: 300px; width: 300px; }
+    .footer-links { flex-direction: column; gap: 1.8rem; }
+    
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
   }
-  @media (max-width: 600px) {
-    section { padding: 5rem 5vw; }
-    #trust { padding: 1.5rem 5vw; }
-    .trust-item { min-width: 50%; }
+
+  /* Small Tablets and Large Phones - 481px to 768px */
+  @media (max-width: 768px) {
+    nav { padding: 0 2.5vw; height: 65px; }
+    .nav-logo img { height: 44px; }
+    
+    section { padding: 3.5rem 3.5vw; }
+    #trust { padding: 1.2rem 3.5vw; }
+    
+    .hero-headline { font-size: clamp(1.4rem, 3vw, 2.2rem); }
+    .hero-sub { font-size: 12.5px; line-height: 1.7; }
+    .hero-actions { flex-direction: column; gap: 0.8rem; }
+    .btn-primary, .btn-outline { padding: 12px 28px; font-size: 10px; width: 100%; text-align: center; }
+    
+    .hero-eyebrow { font-size: 9px; }
+    .section-eyebrow { font-size: 9px; }
+    .section-title { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+    
+    .trust-item { min-width: 50%; padding: 0.6rem 1rem; }
+    .trust-num { font-size: 1.8rem; }
+    .trust-label { font-size: 10px; }
+    
+    .about-values { grid-template-columns: 1fr; gap: 1rem; }
+    .about-content p { font-size: 13px; }
+    
     .practice-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-    .about-values { grid-template-columns: 1fr; }
-    .footer-links { flex-direction: column; gap: 2rem; }
-    .hero-left { padding: 5vh 5vw; }
-    .hero-stats-panel { grid-template-columns: 1fr; gap: 1rem; }
-    .sticky-phone { bottom: 1rem; right: 1rem; padding: 10px 16px; }
-    .nav-logo img { height: 42px; }
-    .testi-card { min-width: 280px; width: 280px; min-height: 340px; height: auto; }
+    .practice-card { padding: 1.8rem 1.5rem; }
+    .practice-icon { width: 60px; height: 60px; margin-bottom: 1rem; }
+    .practice-card h3 { font-size: 1rem; }
+    .practice-card p { font-size: 12px; }
+    
+    .process-steps { grid-template-columns: 1fr; gap: 1.2rem; }
+    .process-step { padding-right: 0; }
+    .step-num { width: 48px; height: 48px; font-size: 0.9rem; }
+    
+    .why-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .why-item { padding: 1.5rem 1.2rem; }
+    .why-item-title { font-size: 0.95rem; }
+    .why-item-desc { font-size: 12px; }
+    
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-question { font-size: 12px; }
+    .faq-answer { font-size: 12px; }
+    
+    .contact-details { gap: 1rem; }
+    .contact-detail { padding-bottom: 1rem; }
+    .contact-detail-value { font-size: 12px; }
+    
+    .form-input, .form-textarea, .form-select { padding: 10px 12px; font-size: 12px; }
+    .form-textarea { min-height: 100px; }
+    .form-submit { padding: 12px; font-size: 10px; }
+    
+    .footer-brand img { height: 60px; }
+    .footer-link-group h4 { font-size: 9px; }
+    .footer-link-group a { font-size: 11px; }
+    .footer-copy { font-size: 10px; }
+    .footer-bci { font-size: 9px; }
+    
+    .sticky-phone { bottom: 1.5rem; right: 1.5rem; padding: 10px 16px; font-size: 10px; }
+    
+    .commitments-list { grid-template-columns: 1fr; }
+    .commitments-list li { font-size: 11.5px; }
+    
+    .testi-card { min-width: 280px; width: 280px; min-height: auto; }
+  }
+
+  /* Phones - 0 to 480px */
+  @media (max-width: 480px) {
+    * { -webkit-tap-highlight-color: transparent; }
+    
+    nav { 
+      padding: 0 2vw; 
+      height: 60px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+    }
+    .nav-logo img { height: 38px; }
+    
+    section { padding: 3rem 3vw; }
+    #trust { padding: 1rem 3vw; }
+    
+    .hero-headline { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+    .hero-sub { font-size: 12px; line-height: 1.65; margin-bottom: 1.5rem; }
+    .hero-actions { flex-direction: column; gap: 0.6rem; }
+    .btn-primary, .btn-outline { 
+      padding: 11px 24px; 
+      font-size: 9px; 
+      width: 100%; 
+      text-align: center;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .hero-eyebrow { font-size: 8px; }
+    .hero-eyebrow::before { width: 16px; }
+    .section-eyebrow { font-size: 8px; gap: 6px; }
+    .section-eyebrow::before { width: 14px; }
+    .section-title { font-size: clamp(1rem, 2.2vw, 1.4rem); line-height: 1.3; }
+    
+    .trust-item { 
+      min-width: 100%; 
+      flex: 1;
+      padding: 0.8rem 0.6rem; 
+      border-right: none;
+      border-bottom: 1px solid rgba(26,39,68,.2);
+    }
+    .trust-item:last-child { border-bottom: none; }
+    .trust-num { font-size: 1.6rem; }
+    .trust-label { font-size: 9px; }
+    
+    .about-values { grid-template-columns: 1fr; gap: 0.8rem; }
+    .about-content p { font-size: 12.5px; }
+    .about-value { padding: 0.8rem 1rem; }
+    .about-value-title { font-size: 10px; }
+    .about-value p { font-size: 11px; }
+    
+    .practice-grid { grid-template-columns: 1fr; }
+    .practice-card { 
+      padding: 1.5rem 1.2rem; 
+      margin-bottom: 0.5rem;
+    }
+    .practice-icon { width: 50px; height: 50px; margin-bottom: 0.8rem; }
+    .practice-icon svg { width: 30px; height: 30px; }
+    .practice-card h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .practice-card p { font-size: 11.5px; }
+    .practice-services-list li { font-size: 11px; }
+    .practice-services-list li strong { font-size: 11px; }
+    
+    .process-steps { grid-template-columns: 1fr; gap: 1rem; }
+    .step-num { width: 44px; height: 44px; font-size: 0.85rem; margin-bottom: 1rem; }
+    .step-title { font-size: 9.5px; }
+    .step-desc { font-size: 11px; }
+    
+    .why-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+    .why-item { padding: 1.2rem 1rem; }
+    .why-item-icon { width: 40px; height: 40px; margin-bottom: 0.8rem; }
+    .why-item-icon svg { width: 18px; height: 18px; }
+    .why-item-title { font-size: 0.9rem; }
+    .why-item-desc { font-size: 11px; }
+    
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-item { padding: 1.2rem 1rem; }
+    .faq-question { font-size: 11.5px; gap: 0.5rem; }
+    .faq-question::after { font-size: 1.1rem; }
+    .faq-answer { font-size: 11px; margin-top: 0.8rem; }
+    
+    .contact-info .section-title { margin-bottom: 1rem; }
+    .contact-info > p { font-size: 12.5px; margin-bottom: 1.2rem; }
+    .contact-details { gap: 0.8rem; }
+    .contact-detail { padding-bottom: 0.8rem; gap: 0.8rem; }
+    .contact-detail-icon { width: 36px; height: 36px; }
+    .contact-detail-label { font-size: 9px; }
+    .contact-detail-value { font-size: 12px; }
+    
+    .contact-form { gap: 0.8rem; }
+    .form-group { gap: 0.25rem; }
+    .form-label { font-size: 9px; }
+    .form-input, .form-textarea, .form-select { 
+      padding: 10px 12px; 
+      font-size: 11px;
+      min-height: 44px;
+    }
+    .form-textarea { min-height: 90px; }
+    .form-submit { 
+      padding: 12px 14px; 
+      font-size: 9px; 
+      min-height: 44px;
+      margin-top: 0.2rem;
+    }
+    .form-note { font-size: 10px; }
+    
+    .footer-top { 
+      flex-direction: column; 
+      gap: 1.5rem; 
+      padding-bottom: 1.5rem;
+    }
+    .footer-brand img { height: 50px; margin-bottom: 0.5rem; }
+    .footer-brand p { font-size: 9px; }
+    .footer-links { flex-direction: column; gap: 1.5rem; }
+    .footer-link-group h4 { font-size: 9px; margin-bottom: 0.8rem; }
+    .footer-link-group a { font-size: 11px; }
+    .footer-bottom { 
+      flex-direction: column; 
+      gap: 0.8rem; 
+      padding-top: 1rem;
+    }
+    .footer-copy { font-size: 10px; }
+    .footer-bci { font-size: 9.5px; max-width: 100%; }
+    
+    .sticky-phone { 
+      bottom: 1rem; 
+      right: 1rem; 
+      padding: 10px 14px; 
+      font-size: 9px;
+      min-height: 44px;
+      min-width: 44px;
+      gap: 6px;
+    }
+    
+    .commitments-block { padding: 1.2rem 1rem; margin-top: 1.2rem; }
+    .commitments-title { font-size: 10px; margin-bottom: 0.8rem; }
+    .commitments-list { gap: 0.5rem; }
+    .commitments-list li { font-size: 11px; padding-left: 1.2rem; }
+    
+    .mission-statement { 
+      margin-top: 1rem; 
+      padding: 1rem 1.2rem; 
+      font-size: 12px;
+    }
+    .mission-statement strong { font-size: 9px; }
+    
+    .disc-box {
+      max-width: 95%;
+      padding: 2rem 1.5rem;
+      margin: 1rem;
+    }
+    .disc-logo { width: 120px; padding: 12px; }
+    .disc-box h2 { font-size: 1rem; margin-bottom: 1rem; }
+    .disc-box p { font-size: 12px; margin-bottom: 1.5rem; }
+    .disc-btn { padding: 11px 28px; font-size: 10px; }
+    
+    .nav-mobile {
+      top: 60px;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+    .nav-mobile a { 
+      font-size: 1.2rem; 
+      padding-bottom: 0.8rem;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .testi-card { 
+      min-width: 90vw;
+      max-width: 90vw;
+      width: 90vw;
+      padding: 1.5rem 1.2rem;
+      min-height: auto;
+    }
+    .testi-stars { font-size: 12px; }
+    .testi-text { font-size: 11px; }
+    .testi-footer { gap: 0.7rem; }
+    .testi-photo { width: 40px; height: 40px; }
+    .testi-name { font-size: 11px; }
+    .testi-case { font-size: 9px; }
+  }
+
+  /* Ultra-small phones - 0 to 360px */
+  @media (max-width: 360px) {
+    nav { height: 56px; }
+    .nav-logo img { height: 34px; }
+    
+    section { padding: 2.5rem 2.5vw; }
+    
+    .hero-headline { font-size: 1rem; }
+    .hero-sub { font-size: 11px; }
+    .btn-primary, .btn-outline { padding: 10px 20px; font-size: 8.5px; }
+    
+    .section-title { font-size: 1.1rem; }
+    
+    .practice-card { padding: 1.2rem 1rem; }
+    .practice-card h3 { font-size: 0.9rem; }
+    
+    .form-input, .form-textarea, .form-select { font-size: 10px; }
+    .form-submit { font-size: 8.5px; }
+    
+    .sticky-phone { padding: 9px 12px; font-size: 8px; }
   }
 </style>
 </head>
@@ -980,7 +1518,8 @@
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#practice">Practice</a></li>
+      <li><a href="#practice">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
       <li><a href="#advocate">Our Advocate</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact" class="nav-cta">Consult Now</a></li>
@@ -993,7 +1532,8 @@
   <!-- MOBILE NAV -->
   <nav class="nav-mobile" id="mobile-nav">
     <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#practice" onclick="closeMenu()">Practice Areas</a>
+    <a href="#practice" onclick="closeMenu()">Our Services</a>
+    <a href="#why" onclick="closeMenu()">Why Choose Us</a>
     <a href="#advocate" onclick="closeMenu()">Our Advocate</a>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="#contact" onclick="closeMenu()">Contact Us</a>
@@ -1057,8 +1597,8 @@
     <div class="about-content">
       <div class="section-eyebrow reveal">About the Chamber</div>
       <h2 class="section-title reveal">Professional Legal Guidance<br><span class="italic">With Integrity and</span><br><span class="italic">Responsibility.</span></h2>
-      <p class="reveal">AISIRI LAW CHAMBERS offers professional legal guidance with integrity, responsibility and client-oriented support. We offer practical legal solutions, full documentation assistance and effective legal representation for individuals and families. We provide reliable legal advice and support based on dedication and professional ethics.</p>
-      <p class="reveal">Guided by Advocate Shamala G S, our team prioritizes a careful understanding of each client's concerns. We deliver practical, responsible legal solutions with attention to detail and ethical practice. Our mission is to make legal services accessible, straightforward, and supportive for every individual and family.</p>
+      <p class="reveal">AISIRI LAW CHAMBERS offers professional legal guidance with integrity, responsibility and client-oriented support. We offer practical legal solutions, full documentation assistance and effective legal representation for individuals and families. We provide reliable legal advice and reliable support, based on dedication and professional ethics.</p>
+      <p class="reveal">Guided by Advocate Shamala G S, our team prioritizes a careful understanding of each client's concerns. We deliver practical, responsible legal solutions with attention to detail and ethical practice — through a client-focused process: <strong style="color:var(--navy);font-weight:500;">consult, assess, document, and represent</strong>.</p>
       <div class="about-values">
         <div class="about-value reveal">
           <div class="about-value-title">Clear Guidance</div>
@@ -1077,22 +1617,58 @@
           <p>Thorough verification and due diligence on title deeds, encumbrances, and property transactions.</p>
         </div>
       </div>
+      <div class="commitments-block reveal">
+        <div class="commitments-title">Our Key Services &amp; Commitments</div>
+        <ul class="commitments-list">
+          <li>Clear legal guidance, explained in plain language.</li>
+          <li>Timely service and prompt responses.</li>
+          <li>Professional representation in civil and family matters.</li>
+          <li>Practical legal solutions focused on client needs.</li>
+          <li>Documentation support, including drafting and reviewing agreements and notices.</li>
+          <li>Legal opinions and case assessments.</li>
+          <li>Property verification and related due diligence.</li>
+          <li>Assistance with family disputes and mediation where appropriate.</li>
+          <li>Comprehensive support for individuals and families across legal issues.</li>
+        </ul>
+      </div>
+      <div class="mission-statement reveal">
+        <strong>Our Mission</strong>
+        To make legal services accessible, straightforward, and supportive for every individual and family.
+      </div>
     </div>
   </section>
 
   <!-- PRACTICE AREAS -->
   <section id="practice">
     <div class="section-eyebrow reveal">What We Do</div>
-    <h2 class="section-title reveal" style="color:var(--white);margin-bottom:.7rem;">Areas of <span style="color:var(--gold);font-style:italic;font-weight:300;">practice.</span></h2>
-    <p class="practice-intro reveal">Providing quality legal services in Bengaluru and Karnataka, we prioritize our clients with our extensive experience in civil, property, and family matters.</p>
-    <div class="practice-grid">
+    <h2 class="section-title reveal" style="color:var(--white);margin-bottom:.7rem;">Our Legal <span style="color:var(--gold);font-style:italic;font-weight:300;">services.</span></h2>
+    <p class="practice-intro reveal">Providing quality legal services in Bengaluru and Karnataka, we prioritize our clients with our extensive experience. We strive to deliver on time and achieve the results we desire. Our team is equipped to defend you in a property dispute, assist with document drafting, and provide family support for your future.</p>
+    <div class="practice-grid" style="grid-template-columns: repeat(3, 1fr);">
       <div class="practice-card reveal">
         <div class="practice-num">01</div>
         <div class="practice-icon">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Civil Cases</h3>
-        <p>Expert representation for property disputes, ownership conflicts, boundary issues, title disputes, injunction matters, partition cases, and recovery of dues through legal proceedings.</p>
+        <p class="practice-tagline">Resolve civil legal conflicts efficiently with our expert representation and strategic guidance.</p>
+        <ul class="practice-services-list">
+          <li>
+            <strong>Property Disputes</strong>
+            We handle ownership conflicts, boundary issues, title disputes, and possession-related cases with clarity and precision.
+          </li>
+          <li>
+            <strong>Injunction Matters</strong>
+            Obtain urgent temporary or permanent injunctions to protect your property or rights from irreparable harm.
+          </li>
+          <li>
+            <strong>Partition Cases</strong>
+            Navigate family property partitions smoothly with fair division of assets and legal mediation.
+          </li>
+          <li>
+            <strong>Recovery Matters</strong>
+            Recover dues, loans, or unpaid amounts through legal notices, filing suits, and enforcement proceedings.
+          </li>
+        </ul>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">02</div>
@@ -1100,7 +1676,29 @@
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <h3>Property &amp; Documentation</h3>
-        <p>Complete due diligence on title deeds, encumbrances, and land records. We draft sale agreements, settlement deeds, gift deeds, affidavits, indemnity bonds, and NOCs.</p>
+        <p class="practice-tagline">Ensure your property transactions are legally sound with our thorough verification and expert drafting services.</p>
+        <ul class="practice-services-list">
+          <li>
+            <strong>Property Verification</strong>
+            Complete due diligence on title deeds, encumbrances, approvals, and land records before buying or selling.
+          </li>
+          <li>
+            <strong>Legal Opinion</strong>
+            Get expert written opinions on property legality, risk assessment, and compliance before making critical decisions.
+          </li>
+          <li>
+            <strong>Sale Agreement Drafting</strong>
+            Legally robust sale agreements that protect your interests and prevent future disputes.
+          </li>
+          <li>
+            <strong>Affidavits &amp; Agreements</strong>
+            Drafting and notarizing affidavits, indemnity bonds, NOCs, and various legal agreements.
+          </li>
+          <li>
+            <strong>Settlement &amp; Gift Deeds</strong>
+            Legally transfer property among family members through settlement or gift deeds with proper registration.
+          </li>
+        </ul>
       </div>
       <div class="practice-card reveal">
         <div class="practice-num">03</div>
@@ -1108,31 +1706,74 @@
           <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <h3>Family &amp; Legal Support</h3>
-        <p>Compassionate and confidential support for family disputes involving inheritance, maintenance, guardianship, and family assets. Specialized guidance for women facing domestic issues, divorce, or harassment.</p>
+        <p class="practice-tagline">Trusted legal support for sensitive family issues with compassion, confidentiality, and strong advocacy.</p>
+        <ul class="practice-services-list">
+          <li>
+            <strong>Family Matters</strong>
+            Resolution of disputes related to inheritance, maintenance, guardianship, and family assets.
+          </li>
+          <li>
+            <strong>Women-Related Legal Guidance</strong>
+            Specialized support for women facing domestic issues, harassment, property rights, divorce, or maintenance.
+          </li>
+          <li>
+            <strong>Notice Drafting</strong>
+            Professionally drafted legal notices for disputes, demand letters, termination, breach of contract, and more.
+          </li>
+          <li>
+            <strong>Petition Preparation</strong>
+            Accurate drafting and filing of petitions for civil, family, or writ courts tailored to your case.
+          </li>
+          <li>
+            <strong>Court Representation</strong>
+            Skilled advocacy across district courts, civil courts, and high courts with dedicated representation at every stage.
+          </li>
+        </ul>
       </div>
-      <div class="practice-card reveal">
-        <div class="practice-num">04</div>
-        <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <h3>Notice Drafting</h3>
-        <p>Professionally drafted legal notices for disputes, demand letters, termination notices, breach of contract, and reply notices tailored to your specific situation.</p>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="section-eyebrow reveal">Why Choose Us</div>
+    <h2 class="section-title reveal" style="margin-bottom:2.5rem;">Clear support when the<br><span class="italic">law feels overwhelming.</span></h2>
+    <div class="why-header">
+      <div class="why-intro">
+        <p class="reveal">It's difficult to navigate legal issues when you don't know where to turn, how best to defend your rights, or what actions to take. When faced with a challenging scenario, delays, unclear communication channels, and inadequate guidance can add stress to the situation.</p>
+        <p class="reveal">We understand these issues and provide clear, efficient and timely legal support. We listen carefully, explain in plain language your choices, and then work out a strategy that suits you exactly. Let us reduce uncertainty, protect your interests and let you walk free through every stage of the process with confidence.</p>
       </div>
-      <div class="practice-card reveal">
-        <div class="practice-num">05</div>
-        <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      <div>
+        <div class="why-subtitle reveal">What You Can Expect</div>
+        <div class="why-grid">
+          <div class="why-item reveal">
+            <div class="why-item-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="why-item-title">Clear Guidance</div>
+            <div class="why-item-desc">Clear guidance when the legal process feels confusing.</div>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="why-item-title">Responsive Communication</div>
+            <div class="why-item-desc">Responsive communication when you need answers.</div>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-item-icon">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="why-item-title">Strategic Support</div>
+            <div class="why-item-desc">Strategic support when the stakes are high.</div>
+          </div>
+          <div class="why-item reveal">
+            <div class="why-item-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div class="why-item-title">Dedicated Representation</div>
+            <div class="why-item-desc">Dedicated representation focused on your best outcome.</div>
+          </div>
         </div>
-        <h3>Petition Preparation</h3>
-        <p>Accurate drafting and filing of petitions for civil, family, and writ courts. We prepare every petition with precision, tailored to your case requirements and the relevant court's standards.</p>
-      </div>
-      <div class="practice-card reveal">
-        <div class="practice-num">06</div>
-        <div class="practice-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
-        <h3>Court Representation</h3>
-        <p>Skilled advocacy across civil courts, district courts, family courts, and the Karnataka High Court — with dedicated representation at every stage of your proceedings.</p>
       </div>
     </div>
   </section>
@@ -1593,6 +2234,7 @@
           <ul>
             <li><a href="#about">About Us</a></li>
             <li><a href="#advocate">Our Advocate</a></li>
+            <li><a href="#why">Why Choose Us</a></li>
             <li><a href="#process">Our Process</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
